@@ -1,0 +1,138 @@
+@font-face
+{
+  font-family: LoLfont;
+  src: url(../public/fonts/BeaufortforLOL-Bold.ttf);
+}
+
+@font-face
+{
+  font-family: searchFont;
+  src: url(../public/fonts/BeaufortforLOL-Regular.ttf);
+}
+
+html
+{
+  /* margin: 0px;
+  min-height: 100vh;
+  background-image: url(../public/images/worlds2020background.jpg);
+  background-size: contain; 
+  background-blend-mode: color-burn;
+  background-color: rgba(212, 134, 134, 0.21);
+  background-repeat: no-repeat; */
+
+}
+
+body
+{
+  margin: 0px;
+  min-height: 100vh;
+  background-image: url(../public/images/worlds2020background.jpg);
+  background-size:cover;
+  background-blend-mode: color-burn;
+  background-color: rgba(212, 134, 134, 0.21);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: row;
+}
+
+.App
+{
+}
+
+.page
+{
+  display: flex;
+  flex-direction: row;
+  background-color: yellow;
+  flex: 1;
+  min-width: 100vw;
+
+}
+
+.leftdataContainer
+{
+  display: flex;
+  flex: 1;
+  background-color: green;
+  font-family: searchFont;
+}
+
+.profileData
+{
+  padding-left: 100px;
+  background-color: yellow;
+}
+
+.rightdataContainer
+{
+  display: flex;
+  flex: 1;
+  background-color: blue;
+  font-family: searchFont;
+}
+
+.gameContainer
+{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.gameContainer > h2
+{
+  flex-direction: row;
+  
+}
+
+
+.searchcontainer
+{
+  display: flex;
+  flex: 1;
+  background-color: red;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+
+.searchcontainer > h1
+{
+  font-family: LoLfont;
+  font-size: 50px;
+  color: aliceblue;
+}
+
+.searchcontainer > p
+{
+  font-family: searchFont;
+  font-size: 40px;
+  color: aliceblue;
+}
+
+.searchbar
+{
+  font-family: searchFont;
+  margin-top: 100px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 300px;
+  font-size: 30px;
+  border-radius: 20px;
+  border: none;
+  padding: 15px;
+  opacity: 90%;
+
+  
+  background-color: rgb(75, 75, 75);
+  color: rgb(149, 135, 255);
+}
+
+.searchbutton
+{
+  font-size: 20px;
+  font-family: searchFont;
+  size: 1000px;
+}
