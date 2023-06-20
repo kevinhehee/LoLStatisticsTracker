@@ -60,16 +60,18 @@ body
   justify-content: center;
 }
 
-.profileData
+.userInfo
 {
-  padding-left: 100px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   background-color: yellow;
 }
 
 .Portraits
 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .champ

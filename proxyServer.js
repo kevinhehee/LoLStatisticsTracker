@@ -65,651 +65,649 @@ function getChampfromID(PUUID)
         {
             if (response.data.data.Aatrox.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Aatrox.name);
+                champNames.push(response.data.data.Aatrox.id);
             }
             if (response.data.data.Ahri.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Ahri.name);
+                champNames.push(response.data.data.Ahri.id);
             }
             if (response.data.data.Akali.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Akali.name);
+                champNames.push(response.data.data.Akali.id);
             }
             if (response.data.data.Akshan.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Akshan.name);
+                champNames.push(response.data.data.Akshan.id);
             }
             if (response.data.data.Alistar.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Alistar.name);
+                champNames.push(response.data.data.Alistar.id);
             }
             if (response.data.data.Amumu.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Amumu.name);
+                champNames.push(response.data.data.Amumu.id);
             }
             if (response.data.data.Anivia.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Anivia.name);
+                champNames.push(response.data.data.Anivia.id);
             }
             if (response.data.data.Annie.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Annie.name);
+                champNames.push(response.data.data.Annie.id);
             }
             if (response.data.data.Aphelios.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Aphelios.name);
+                champNames.push(response.data.data.Aphelios.id);
             }
             if (response.data.data.Ashe.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Ashe.name);
+                champNames.push(response.data.data.Ashe.id);
             }
             if (response.data.data.AurelionSol.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.AurelionSol.name);
+                champNames.push(response.data.data.AurelionSol.id);
             }
             if (response.data.data.Azir.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Azir.name);
+                champNames.push(response.data.data.Azir.id);
             }
             if (response.data.data.Bard.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Bard.name);
+                champNames.push(response.data.data.Bard.id);
             }
             if (response.data.data.Belveth.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Belveth.name);
+                champNames.push(response.data.data.Belveth.id);
             }
             if (response.data.data.Blitzcrank.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Blitzcrank.name);
+                champNames.push(response.data.data.Blitzcrank.id);
             }
             if (response.data.data.Brand.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Brand.name);
+                champNames.push(response.data.data.Brand.id);
             }
             if (response.data.data.Braum.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Braum.name);
+                champNames.push(response.data.data.Braum.id);
             }
             if (response.data.data.Caitlyn.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Caitlyn.name);
+                champNames.push(response.data.data.Caitlyn.id);
             }
             if (response.data.data.Camille.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Camille.name);
+                champNames.push(response.data.data.Camille.id);
             }
             if (response.data.data.Cassiopeia.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Cassiopeia.name);
+                champNames.push(response.data.data.Cassiopeia.id);
             }
             if (response.data.data.Chogath.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Chogath.name);
+                champNames.push(response.data.data.Chogath.id);
             }
             if (response.data.data.Corki.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Corki.name);
+                champNames.push(response.data.data.Corki.id);
             }
             if (response.data.data.Darius.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Darius.name);
+                champNames.push(response.data.data.Darius.id);
             }
             if (response.data.data.Diana.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Diana.name);
+                champNames.push(response.data.data.Diana.id);
             }
             if (response.data.data.Draven.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Draven.name);
+                champNames.push(response.data.data.Draven.id);
             }
             if (response.data.data.DrMundo.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.DrMundo.name);
+                champNames.push(response.data.data.DrMundo.id);
             }
             if (response.data.data.Ekko.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Ekko.name);
+                champNames.push(response.data.data.Ekko.id);
             }
             if (response.data.data.Elise.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Elise.name);
+                champNames.push(response.data.data.Elise.id);
             }
             if (response.data.data.Evelynn.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Evelynn.name);
+                champNames.push(response.data.data.Evelynn.id);
             }
             if (response.data.data.Ezreal.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Ezreal.name);
+                champNames.push(response.data.data.Ezreal.id);
             }
             if (response.data.data.Fiddlesticks.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Fiddlesticks.name);
+                champNames.push(response.data.data.Fiddlesticks.id);
             }
             if (response.data.data.Fiora.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Fiora.name);
+                champNames.push(response.data.data.Fiora.id);
             }
             if (response.data.data.Fizz.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Fizz.name);
+                champNames.push(response.data.data.Fizz.id);
             }
             if (response.data.data.Galio.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Galio.name);
+                champNames.push(response.data.data.Galio.id);
             }
             if (response.data.data.Gangplank.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Gangplank.name);
+                champNames.push(response.data.data.Gangplank.id);
             }
             if (response.data.data.Garen.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Garen.name);
+                champNames.push(response.data.data.Garen.id);
             }
             if (response.data.data.Gnar.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Gnar.name);
+                champNames.push(response.data.data.Gnar.id);
             }
             if (response.data.data.Gragas.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Gragas.name);
+                champNames.push(response.data.data.Gragas.id);
             }
             if (response.data.data.Graves.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Graves.name);
+                champNames.push(response.data.data.Graves.id);
             }
             if (response.data.data.Gwen.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Gwen.name);
+                champNames.push(response.data.data.Gwen.id);
             }
             if (response.data.data.Hecarim.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Hecarim.name);
+                champNames.push(response.data.data.Hecarim.id);
             }
             if (response.data.data.Heimerdinger.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Heimerdinger.name);
+                champNames.push(response.data.data.Heimerdinger.id);
             }
             if (response.data.data.Illaoi.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Illaoi.name);
+                champNames.push(response.data.data.Illaoi.id);
             }
             if (response.data.data.Irelia.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Irelia.name);
+                champNames.push(response.data.data.Irelia.id);
             }
             if (response.data.data.Ivern.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Ivern.name);
+                champNames.push(response.data.data.Ivern.id);
             }
             if (response.data.data.Janna.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Janna.name);
+                champNames.push(response.data.data.Janna.id);
             }
             if (response.data.data.JarvanIV.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.JarvanIV.name);
+                champNames.push(response.data.data.JarvanIV.id);
             }
             if (response.data.data.Jax.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Jax.name);
+                champNames.push(response.data.data.Jax.id);
             }
             if (response.data.data.Jayce.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Jayce.name);
+                champNames.push(response.data.data.Jayce.id);
             }
             if (response.data.data.Jhin.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Jhin.name);
+                champNames.push(response.data.data.Jhin.id);
             }
             if (response.data.data.Jinx.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Jinx.name);
+                champNames.push(response.data.data.Jinx.id);
             }
             if (response.data.data.Kaisa.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Kaisa.name);
+                champNames.push(response.data.data.Kaisa.id);
             }
             if (response.data.data.Kalista.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Kalista.name);
+                champNames.push(response.data.data.Kalista.id);
             }
             if (response.data.data.Karma.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Karma.name);
+                champNames.push(response.data.data.Karma.id);
             }
             if (response.data.data.Karthus.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Karthus.name);
+                champNames.push(response.data.data.Karthus.id);
             }
             if (response.data.data.Kassadin.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Kassadin.name);
+                champNames.push(response.data.data.Kassadin.id);
             }
             if (response.data.data.Katarina.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Katarina.name);
+                champNames.push(response.data.data.Katarina.id);
             }
             if (response.data.data.Kayle.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Kayle.name);
+                champNames.push(response.data.data.Kayle.id);
             }
             if (response.data.data.Kayn.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Kayn.name);
+                champNames.push(response.data.data.Kayn.id);
             }
             if (response.data.data.Kennen.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Kennen.name);
+                champNames.push(response.data.data.Kennen.id);
             }
             if (response.data.data.Khazix.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Khazix.name);
+                champNames.push(response.data.data.Khazix.id);
             }
             if (response.data.data.Kindred.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Kindred.name);
+                champNames.push(response.data.data.Kindred.id);
             }
             if (response.data.data.Kled.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Kled.name);
+                champNames.push(response.data.data.Kled.id);
             }
             if (response.data.data.KogMaw.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.KogMaw.name);
+                champNames.push(response.data.data.KogMaw.id);
             }
             if (response.data.data.Leblanc.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Leblanc.name);
+                champNames.push(response.data.data.Leblanc.id);
             }
             if (response.data.data.LeeSin.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.LeeSin.name);
+                champNames.push(response.data.data.LeeSin.id);
             }
             if (response.data.data.Leona.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Leona.name);
+                champNames.push(response.data.data.Leona.id);
             }
             if (response.data.data.Lillia.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Lillia.name);
+                champNames.push(response.data.data.Lillia.id);
             }
             if (response.data.data.Lissandra.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Lissandra.name);
+                champNames.push(response.data.data.Lissandra.id);
             }
             if (response.data.data.Lucian.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Lucian.name);
+                champNames.push(response.data.data.Lucian.id);
             }
             if (response.data.data.Lulu.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Lulu.name);
+                champNames.push(response.data.data.Lulu.id);
             }
             if (response.data.data.Lux.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Lux.name);
+                champNames.push(response.data.data.Lux.id);
             }
             if (response.data.data.Malphite.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Malphite.name);
+                champNames.push(response.data.data.Malphite.id);
             }
             if (response.data.data.Malzahar.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Malzahar.name);
+                champNames.push(response.data.data.Malzahar.id);
             }
             if (response.data.data.Maokai.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Maokai.name);
+                champNames.push(response.data.data.Maokai.id);
             }
             if (response.data.data.MasterYi.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.MasterYi.name);
+                champNames.push(response.data.data.MasterYi.id);
             }
             if (response.data.data.MissFortune.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.MissFortune.name);
+                champNames.push(response.data.data.MissFortune.id);
             }
             if (response.data.data.Mordekaiser.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Mordekaiser.name);
+                champNames.push(response.data.data.Mordekaiser.id);
             }
             if (response.data.data.Morgana.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Morgana.name);
+                champNames.push(response.data.data.Morgana.id);
             }
             if (response.data.data.Nami.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Nami.name);
+                champNames.push(response.data.data.Nami.id);
             }
             if (response.data.data.Nasus.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Nasus.name);
+                champNames.push(response.data.data.Nasus.id);
             }
             if (response.data.data.Nautilus.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Nautilus.name);
+                champNames.push(response.data.data.Nautilus.id);
             }
             if (response.data.data.Neeko.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Neeko.name);
+                champNames.push(response.data.data.Neeko.id);
             }
             if (response.data.data.Nidalee.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Nidalee.name);
+                champNames.push(response.data.data.Nidalee.id);
             }
             if (response.data.data.Nilah.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Nilah.name);
+                champNames.push(response.data.data.Nilah.id);
             }
             if (response.data.data.Nocturne.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Nocturne.name);
+                champNames.push(response.data.data.Nocturne.id);
             }
             if (response.data.data.Nunu.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Nunu.name);
+                champNames.push(response.data.data.Nunu.id);
             }
             if (response.data.data.Olaf.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Olaf.name);
+                champNames.push(response.data.data.Olaf.id);
             }
             if (response.data.data.Orianna.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Orianna.name);
+                champNames.push(response.data.data.Orianna.id);
             }
             if (response.data.data.Ornn.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Ornn.name);
+                champNames.push(response.data.data.Ornn.id);
             }
             if (response.data.data.Pantheon.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Pantheon.name);
+                champNames.push(response.data.data.Pantheon.id);
             }
             if (response.data.data.Poppy.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Poppy.name);
+                champNames.push(response.data.data.Poppy.id);
             }
             if (response.data.data.Pyke.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Pyke.name);
+                champNames.push(response.data.data.Pyke.id);
             }
             if (response.data.data.Qiyana.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Qiyana.name);
+                champNames.push(response.data.data.Qiyana.id);
             }
             if (response.data.data.Quinn.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Quinn.name);
+                champNames.push(response.data.data.Quinn.id);
             }
             if (response.data.data.Rakan.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Rakan.name);
+                champNames.push(response.data.data.Rakan.id);
             }
             if (response.data.data.Rammus.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Rammus.name);
+                champNames.push(response.data.data.Rammus.id);
             }
             if (response.data.data.RekSai.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.RekSai.name);
+                champNames.push(response.data.data.RekSai.id);
             }
             if (response.data.data.Rell.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Rell.name);
+                champNames.push(response.data.data.Rell.id);
             }
             if (response.data.data.Renata.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Renata.name);
+                champNames.push(response.data.data.Renata.id);
             }
             if (response.data.data.Renekton.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Renekton.name);
+                champNames.push(response.data.data.Renekton.id);
             }
             if (response.data.data.Rengar.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Rengar.name);
+                champNames.push(response.data.data.Rengar.id);
             }
             if (response.data.data.Riven.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Riven.name);
+                champNames.push(response.data.data.Riven.id);
             }
             if (response.data.data.Rumble.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Rumble.name);
+                champNames.push(response.data.data.Rumble.id);
             }
             if (response.data.data.Ryze.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Ryze.name);
+                champNames.push(response.data.data.Ryze.id);
             }
             if (response.data.data.Samira.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Samira.name);
+                champNames.push(response.data.data.Samira.id);
             }
             if (response.data.data.Sejuani.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Sejuani.name);
+                champNames.push(response.data.data.Sejuani.id);
             }
             if (response.data.data.Senna.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Senna.name);
+                champNames.push(response.data.data.Senna.id);
             }
             if (response.data.data.Seraphine.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Seraphine.name);
+                champNames.push(response.data.data.Seraphine.id);
             }
             if (response.data.data.Sett.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Sett.name);
+                champNames.push(response.data.data.Sett.id);
             }
             if (response.data.data.Shaco.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Shaco.name);
+                champNames.push(response.data.data.Shaco.id);
             }
             if (response.data.data.Shen.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Shen.name);
+                champNames.push(response.data.data.Shen.id);
             }
             if (response.data.data.Shyvana.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Shyvana.name);
+                champNames.push(response.data.data.Shyvana.id);
             }
             if (response.data.data.Singed.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Singed.name);
+                champNames.push(response.data.data.Singed.id);
             }
             if (response.data.data.Sion.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Sion.name);
+                champNames.push(response.data.data.Sion.id);
             }
             if (response.data.data.Sivir.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Sivir.name);
+                champNames.push(response.data.data.Sivir.id);
             }
             if (response.data.data.Skarner.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Skarner.name);
+                champNames.push(response.data.data.Skarner.id);
             }
             if (response.data.data.Sona.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Sona.name);
+                champNames.push(response.data.data.Sona.id);
             }
             if (response.data.data.Soraka.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Soraka.name);
+                champNames.push(response.data.data.Soraka.id);
             }
             if (response.data.data.Swain.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Swain.name);
+                champNames.push(response.data.data.Swain.id);
             }
             if (response.data.data.Sylas.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Sylas.name);
+                champNames.push(response.data.data.Sylas.id);
             }
             if (response.data.data.Syndra.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Syndra.name);
+                champNames.push(response.data.data.Syndra.id);
             }
             if (response.data.data.TahmKench.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.TahmKench.name);
+                champNames.push(response.data.data.TahmKench.id);
             }
             if (response.data.data.Taliyah.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Taliyah.name);
+                champNames.push(response.data.data.Taliyah.id);
             }
             if (response.data.data.Talon.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Talon.name);
+                champNames.push(response.data.data.Talon.id);
             }
             if (response.data.data.Taric.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Taric.name);
+                champNames.push(response.data.data.Taric.id);
             }
             if (response.data.data.Teemo.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Teemo.name);
+                champNames.push(response.data.data.Teemo.id);
             }
             if (response.data.data.Thresh.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Thresh.name);
+                champNames.push(response.data.data.Thresh.id);
             }
             if (response.data.data.Tristana.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Tristana.name);
+                champNames.push(response.data.data.Tristana.id);
             }
             if (response.data.data.Trundle.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Trundle.name);
+                champNames.push(response.data.data.Trundle.id);
             }
             if (response.data.data.Tryndamere.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Tryndamere.name);
+                champNames.push(response.data.data.Tryndamere.id);
             }
             if (response.data.data.TwistedFate.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.TwistedFate.name);
+                champNames.push(response.data.data.TwistedFate.id);
             }
             if (response.data.data.Twitch.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Twitch.name);
+                champNames.push(response.data.data.Twitch.id);
             }
             if (response.data.data.Udyr.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Udyr.name);
+                champNames.push(response.data.data.Udyr.id);
             }
             if (response.data.data.Urgot.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Urgot.name);
+                champNames.push(response.data.data.Urgot.id);
             }
             if (response.data.data.Varus.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Varus.name);
+                champNames.push(response.data.data.Varus.id);
             }
             if (response.data.data.Vayne.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Vayne.name);
+                champNames.push(response.data.data.Vayne.id);
             }
             if (response.data.data.Veigar.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Veigar.name);
+                champNames.push(response.data.data.Veigar.id);
             }
             if (response.data.data.Velkoz.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Velkoz.name);
+                champNames.push(response.data.data.Velkoz.id);
             }
             if (response.data.data.Vex.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Vex.name);
+                champNames.push(response.data.data.Vex.id);
             }
             if (response.data.data.Vi.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Vi.name);
+                champNames.push(response.data.data.Vi.id);
             }
             if (response.data.data.Viego.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Viego.name);
+                champNames.push(response.data.data.Viego.id);
             }
             if (response.data.data.Viktor.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Viktor.name);
+                champNames.push(response.data.data.Viktor.id);
             }
             if (response.data.data.Vladimir.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Vladimir.name);
+                champNames.push(response.data.data.Vladimir.id);
             }
             if (response.data.data.Volibear.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Volibear.name);
+                champNames.push(response.data.data.Volibear.id);
             }
             if (response.data.data.Warwick.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Warwick.name);
+                champNames.push(response.data.data.Warwick.id);
             }
             if (response.data.data.MonkeyKing.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.MonkeyKing.name);
+                champNames.push(response.data.data.MonkeyKing.id);
             }
             if (response.data.data.Xayah.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Xayah.name);
+                champNames.push(response.data.data.Xayah.id);
             }
             if (response.data.data.Xerath.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Xerath.name);
+                champNames.push(response.data.data.Xerath.id);
             }
             if (response.data.data.XinZhao.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.XinZhao.name);
+                champNames.push(response.data.data.XinZhao.id);
             }
             if (response.data.data.Yasuo.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Yasuo.name);
+                champNames.push(response.data.data.Yasuo.id);
             }
             if (response.data.data.Yone.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Yone.name);
+                champNames.push(response.data.data.Yone.id);
             }
             if (response.data.data.Yorick.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Yorick.name);
+                champNames.push(response.data.data.Yorick.id);
             }
             if (response.data.data.Yuumi.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Yuumi.name);
+                champNames.push(response.data.data.Yuumi.id);
             }
             if (response.data.data.Zac.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Zac.name);
+                champNames.push(response.data.data.Zac.id);
             }
             if (response.data.data.Zed.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Zed.name);
+                champNames.push(response.data.data.Zed.id);
             }
             if (response.data.data.Zeri.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Zeri.name);
+                champNames.push(response.data.data.Zeri.id);
             }
             if (response.data.data.Ziggs.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Ziggs.name);
+                champNames.push(response.data.data.Ziggs.id);
             }
             if (response.data.data.Zilean.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Zilean.name);
+                champNames.push(response.data.data.Zilean.id);
             }
             if (response.data.data.Zoe.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Zoe.name);
+                champNames.push(response.data.data.Zoe.id);
             }
             if (response.data.data.Zyra.key === userChampIDs[i].toString())
             {
-                champNames.push(response.data.data.Zyra.name);
+                champNames.push(response.data.data.Zyra.id);
             }
 
-
-            
         }
         // console.log(eval('obj=allchamps[0]'));
         // console.log(obj);
