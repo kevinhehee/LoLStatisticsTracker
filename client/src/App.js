@@ -38,13 +38,24 @@ function App() {
               <p>Player Level: {gameList[0][1]}</p>
               <img width= "100px" height = "100px" src = {"http://ddragon.leagueoflegends.com/cdn/13.11.1/img/profileicon/" + 
               gameList[0][2] + ".png"}></img>
+
+              <div className = "Portraits">
+                <h1>Highest Mastery</h1>
+                
+                <champ>{gameList[3][0]}</champ>
+                <img width = "154px" height = "280px" src = {"http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + gameList[3][0] + "_0.jpg"}></img>
+                <p1>{gameList[3][1]}</p1>
+                <p1>{gameList[3][2]}</p1>
+              </div>
             </div>
+            
           </>
           :
           <>
           No player
           </>
           }
+          
 
 
         </div>  

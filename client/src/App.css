@@ -1,4 +1,5 @@
 @font-face
+
 {
   font-family: LoLfont;
   src: url(../public/fonts/BeaufortforLOL-Bold.ttf);
@@ -44,7 +45,7 @@ body
 {
   display: flex;
   flex-direction: row;
-  background-color: yellow;
+  /* background-color: yellow; */
   flex: 1;
   min-width: 100vw;
 
@@ -56,12 +57,27 @@ body
   flex: 1;
   background-color: green;
   font-family: searchFont;
+  justify-content: center;
 }
 
 .profileData
 {
   padding-left: 100px;
   background-color: yellow;
+}
+
+.Portraits
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.champ
+{
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .rightdataContainer
@@ -76,7 +92,7 @@ body
 {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px;
 }
 
 .gameContainer > h2
