@@ -37,10 +37,6 @@ body
   flex-direction: row;
 }
 
-.App
-{
-}
-
 .page
 {
   display: flex;
@@ -48,6 +44,7 @@ body
   /* background-color: yellow; */
   flex: 1;
   min-width: 100vw;
+  min-height: 100%;
 
 }
 
@@ -57,30 +54,93 @@ body
   flex: 1;
   background-color: green;
   font-family: searchFont;
-  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 0;
+  margin: 0;
+  
 }
 
-.userInfo
+.userInfoContainer
 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  background-color: purple;
+  font-size: 30px;
+  align-content: center;
+  margin: auto;
+}
+
+.summonerName
+{
+  text-align: center;
+}
+
+.HighestMastery
+{
+  flex-direction: column;
+
+}
+
+.portraitContainer
+{
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
-  background-color: yellow;
+  background-color: aliceblue;
+  margin: 0;
+  align-content: space-between;
+  text-align: justify;
 }
 
-.Portraits
+.champSplashContainer
 {
   display: flex;
   flex-direction: row;
 }
 
-.champ
+.champSplash
 {
-  font-size: 30px;
-  display: flex;
-  flex-direction: column;
-
+  flex: 1;
+  text-align: center;
+  background-color: red
 }
+
+
+.rankInfoContainer
+{
+  flex: 1;
+  background-color: pink;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .rightdataContainer
 {
@@ -102,6 +162,8 @@ body
   flex-direction: row;
   
 }
+
+
 
 
 .searchcontainer
