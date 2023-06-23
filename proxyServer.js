@@ -10,7 +10,8 @@ app.use(cors());
 let userInfo = [];
 let userChampIDs = [];
 let champNames = [];
-const API_KEY = "RGAPI-2c875c7b-11b1-4f8d-b1d1-3ef30582e17e";
+let rankedInfo = [];
+const API_KEY = "RGAPI-a55a5d81-099b-44c0-87cc-701afc1cc10f";
 
 function getPlayerDATA(playerName) {
     return axios.get("https://na1.api.riotgames.com" + "/lol/summoner/v4/summoners/by-name/" + playerName + "?api_key=" + API_KEY)
@@ -22,6 +23,7 @@ function getPlayerDATA(playerName) {
             userInfo.push(response.data.name);
             userInfo.push(response.data.summonerLevel);
             userInfo.push(response.data.profileIconId);
+            // userInfo.push(response.data.id)
             console.log(response.data);
             return response.data;
         }).catch(err => err);
@@ -70,6 +72,25 @@ function getChampfromID(PUUID)
     }).catch(err => err);
 }
 
+function getRankedInfo(id)
+{
+    return axios.get("https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + id + "?api_key=" + API_KEY)
+    .then(response =>
+        {
+            console.log("https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + id + "?api_key=" + API_KEY);
+            console.log(response.data);
+
+            if (response.data.length !== 0)
+            {
+                rankedInfo.push(response.data[0].tier + " " + response.data[0].rank);
+                rankedInfo.push(response.data[0].leaguePoints);
+                rankedInfo.push(response.data[0].wins);
+                rankedInfo.push(response.data[0].losses);
+            }
+        }
+        ).catch(err => err);
+}
+
 app.get('/past5Games', async (req, res) => {
 
     const playerName = req.query.username;
@@ -77,6 +98,8 @@ app.get('/past5Games', async (req, res) => {
     const playerData = await getPlayerDATA(playerName);
     const PUUID = playerData.puuid;
     const playerChamp = await getPlayerCHAMP(PUUID);
+    console.log(playerData.id);
+    const rankInfo = await getRankedInfo(playerData.id);
 
     const work = await getChampfromID(PUUID);
     const API_CALL = "https://americas.api.riotgames.com" + "/lol/match/v5/matches/by-puuid/" + PUUID + "/ids" + "?api_key=" + API_KEY;
@@ -98,9 +121,10 @@ app.get('/past5Games', async (req, res) => {
         const matchData = await axios.get("https://americas.api.riotgames.com/lol/match/v5/matches/" + matchID + "?api_key=" + API_KEY)
             .then(response => response.data)
             .catch(err => err)
+        // console.log("https://americas.api.riotgames.com/lol/match/v5/matches/" + matchID + "?api_key=" + API_KEY);
         matchDataArray.push(matchData);
     }
-    var allDATA = [userInfo, matchDataArray, userChampIDs, champNames];
+    var allDATA = [userInfo, matchDataArray, userChampIDs, champNames, rankedInfo];
     res.json(allDATA);
     for (let i = 0; i < 6; i++)
     {
