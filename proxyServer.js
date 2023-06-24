@@ -82,7 +82,8 @@ function getRankedInfo(id)
 
             if (response.data.length !== 0)
             {
-                rankedInfo.push(response.data[0].tier + " " + response.data[0].rank);
+                rankedInfo.push(response.data[0].tier);
+                rankedInfo.push(response.data[0].rank);
                 rankedInfo.push(response.data[0].leaguePoints);
                 rankedInfo.push(response.data[0].wins);
                 rankedInfo.push(response.data[0].losses);
@@ -131,6 +132,7 @@ app.get('/past5Games', async (req, res) => {
         userInfo.pop();
         userChampIDs.pop();
         champNames.pop();
+        rankedInfo.pop();
     }
 })
 

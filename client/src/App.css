@@ -45,12 +45,16 @@ body
   flex: 1;
   min-width: 100vw;
   min-height: 100%;
+  align-content: center;
+  margin: auto;
+
 
 }
 
 .leftdataContainer
 {
   display: flex;
+  flex: 1;
   background-color: green;
   font-family: searchFont;
   
@@ -82,6 +86,7 @@ body
   margin: 0;
   align-content: space-between;
   text-align: justify;
+  
 }
 
 .champSplashContainer
@@ -93,6 +98,7 @@ body
 .champSplash
 {
   flex: 1;
+  flex-direction: column;
   text-align: center;
   background-color: red;
 }
@@ -115,28 +121,35 @@ body
 
 .rankInfoContainer
 {
+  display: flex;
   flex: 1;
+  overflow: visible;
 }
 
 .rankInfoContainer
 {
+  display: flex;
   flex: 1;
   background-color: pink;
 }
 
-.playerInfoContainer
+.rankIcon
 {
-  display: flex;
   flex: 1;
-  align-content: center;
+  
 }
 
-.playerInfo
+.rankStats
 {
+  flex: 1.5;
   text-align: center;
-  margin: 0px;
-
 }
+
+.rankIcon > h2
+{
+  font-size: 20px;
+}
+
 
 
 
@@ -160,7 +173,8 @@ body
 .rightdataContainer
 {
   display: flex;
-  flex: 2;
+  flex: 1;
+  flex-direction: column;
   background-color: blue;
   font-family: searchFont;
 }
@@ -169,7 +183,7 @@ body
 {
   display: flex;
   flex: 2;
-  flex-direction: column;
+  flex-direction: row;
   padding: 10px;
 }
 
@@ -179,13 +193,58 @@ body
   
 }
 
+.gameDataContainer
+{
+  background-color: green;
+  flex-direction: row;
+  flex: 1;
+}
 
+
+
+
+.playerInfoContainer
+{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  align-content: space-between;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.playerInfo
+{
+  margin: 0px;
+  align-content: space-between;
+  width: 8%;
+}
+
+
+.champIcon
+{
+  margin-left: auto;
+}
+
+
+
+
+
+
+
+.restcontainer
+{
+  flex: 1;
+}
 
 
 .searchcontainer
 {
   display: flex;
-  flex: 1;
+  flex: .3;
   background-color: red;
   flex-direction: column;
   justify-content: center;
