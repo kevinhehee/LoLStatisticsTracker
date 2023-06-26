@@ -1,3 +1,9 @@
+# League of Legends Statistics Tracker
+
+This project uses React, Next.js, Axios, and Express, and allows users to view their League of Legends player statistics and match history.  
+I used Axios to call the Riot API which provided match information and other data which I sorted through to determine what is important to the player.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
