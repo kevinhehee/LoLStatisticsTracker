@@ -21,13 +21,13 @@ function App() {
   console.log(gameList);
 
   return (
-    <div>
+    <div className = "page">
       <div className = "searchcontainer">
           <h1>LoL Player Search</h1>
           <input className = "searchbar" type = "text" onChange={e => setSearchText(e.target.value)}></input>
           <button className = "searchbutton" onClick = {getPlayerGames}>Search</button>
       </div>
-      <div className = "page">
+      <div className = "restcontainer">
         
             
         

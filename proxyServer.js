@@ -11,7 +11,7 @@ let userInfo = [];
 let userChampIDs = [];
 let champNames = [];
 let rankedInfo = [];
-const API_KEY = "RGAPI-a55a5d81-099b-44c0-87cc-701afc1cc10f";
+const API_KEY = "HIDDEN";
 
 function getPlayerDATA(playerName) {
     return axios.get("https://na1.api.riotgames.com" + "/lol/summoner/v4/summoners/by-name/" + playerName + "?api_key=" + API_KEY)
