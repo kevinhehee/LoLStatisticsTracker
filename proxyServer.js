@@ -1,6 +1,7 @@
 var express = require('express');
 var cors = require('cors');
 const axios = require('axios');
+require('dotenv').config();
 
 var app = express();
 
@@ -11,7 +12,9 @@ let userInfo = [];
 let userChampIDs = [];
 let champNames = [];
 let rankedInfo = [];
-const API_KEY = "HIDDEN";
+let allGamesInfo = [];
+
+const API_KEY = process.env.LOL_API_KEY;
 
 function getPlayerDATA(playerName) {
     return axios.get("https://na1.api.riotgames.com" + "/lol/summoner/v4/summoners/by-name/" + playerName + "?api_key=" + API_KEY)
@@ -59,14 +62,33 @@ function getChampfromID(PUUID)
             if(check.key === userChampIDs[0].toString())
             {
                 champNames.push(check.id);
+                champNames.push(check.name);
+                break;
             }
-            else if(check.key === userChampIDs[2].toString())
+        }
+
+        for (let i = 0; i < allchamps.length; i++)
+        {
+            var check = response.data.data[allchamps[i]];
+            
+
+            if(check.key === userChampIDs[2].toString())
             {
                 champNames.push(check.id);
+                champNames.push(check.name);
+                break;
             }
-            else if(check.key === userChampIDs[4].toString())
+        }
+
+        for (let i = 0; i < allchamps.length; i++)
+        {
+            var check = response.data.data[allchamps[i]];
+            
+            if(check.key === userChampIDs[4].toString())
             {
                 champNames.push(check.id);
+                champNames.push(check.name);
+                break;
             }
         }
     }).catch(err => err);
@@ -104,7 +126,7 @@ app.get('/past5Games', async (req, res) => {
 
     const work = await getChampfromID(PUUID);
     const API_CALL = "https://americas.api.riotgames.com" + "/lol/match/v5/matches/by-puuid/" + PUUID + "/ids" + "?api_key=" + API_KEY;
-
+    console.log(API_CALL);
     // API call to find list of game IDs
     const gameIDs = await axios.get(API_CALL)
         .then(response => response.data)
@@ -122,8 +144,10 @@ app.get('/past5Games', async (req, res) => {
         const matchData = await axios.get("https://americas.api.riotgames.com/lol/match/v5/matches/" + matchID + "?api_key=" + API_KEY)
             .then(response => response.data)
             .catch(err => err)
-        // console.log("https://americas.api.riotgames.com/lol/match/v5/matches/" + matchID + "?api_key=" + API_KEY);
+        console.log("https://americas.api.riotgames.com/lol/match/v5/matches/" + matchID + "?api_key=" + API_KEY);
         matchDataArray.push(matchData);
+        
+        console.log(matchData);
     }
     var allDATA = [userInfo, matchDataArray, userChampIDs, champNames, rankedInfo];
     res.json(allDATA);
