@@ -40,9 +40,7 @@ body
 .page
 {
   display: flex;
-  flex-direction: row;
-  /* background-color: yellow; */
-  flex: 1;
+  flex-direction: row; 
   min-width: 100vw;
   min-height: 100%;
   align-content: center;
@@ -55,6 +53,7 @@ body
 {
   display: flex;
   flex: 1;
+  flex-direction: column;
   background-color: green;
   font-family: searchFont;
   
@@ -62,8 +61,12 @@ body
 
 .userInfoContainer
 {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
   background-color: purple;
   margin: 0;
+
 }
 
 .summonerName
@@ -71,11 +74,7 @@ body
   text-align: center;
 }
 
-.HighestMastery
-{
-  flex-direction: column;
 
-}
 
 .portraitContainer
 {
@@ -92,6 +91,19 @@ body
 .champSplashContainer
 {
   display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.HighestMastery
+{
+  margin: 0;
+
+}
+
+.SplashContainer
+{
+  display: flex;
   flex-direction: row;
 }
 
@@ -103,7 +115,7 @@ body
   background-color: red;
 }
 
-.champname
+.champName
 {
   font-size: 40px;
 
@@ -124,6 +136,7 @@ body
   display: flex;
   flex: 1;
   overflow: visible;
+  width: fit-content;
 }
 
 .rankInfoContainer
@@ -143,6 +156,7 @@ body
 {
   flex: 1.5;
   text-align: center;
+  padding-right: 10px;
 }
 
 .rankIcon > h2
@@ -189,7 +203,8 @@ body
 
 .gameContainer > h2
 {
-  flex-direction: row;
+  white-space: nowrap;
+  padding-right: 5px;
   
 }
 
@@ -237,18 +252,21 @@ body
 
 .restcontainer
 {
+  display: flex;
+  flex-direction: column;
   flex: 1;
+
 }
 
 
 .searchcontainer
 {
   display: flex;
-  flex: .3;
+  flex: 2;
   background-color: red;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding: 40px;
 
   
 }
