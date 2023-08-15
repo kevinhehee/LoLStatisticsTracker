@@ -95,27 +95,36 @@ function App() {
                 
                 
               {/* biji */}
-                  {gameList[4].length !== 0 ?
+                  {gameList[4].length !== 0 && gameList[4][0] != "Unranked" ?
                   (
                     
                   <div className = "rankInfoContainer">
                       
                       <div className = "rankIcon">
                         <img width = "200px" height = "200px" src = {require("./images/emblem-" + gameList[4][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
-                        
                       </div>
+
+                      
                       
                       <div className = "rankStats">
                         <h1>{gameList[4][0]} {gameList[4][1]} {gameList[4][2]} LP</h1>
                         <h2>{gameList[4][3]}W {gameList[4][4]}L</h2>
                         <h2>{((gameList[4][3] / (gameList[4][3] + gameList[4][4])) * 100).toFixed(2)}% Win Rate</h2>
+                        <h2>Solo/Duo Queue</h2>
                       </div>
                   </div>
                   )
                   :
                   (
                   <div className = "rankInfoContainer">
-                    <div>NO RANK</div>
+                    <div className = "rankIcon">
+                        <img width = "200px" height = "200px" src = {require("./images/emblem-" + gameList[4][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
+                    </div>
+                    <div className = "rankStats">
+                        <h1>{gameList[4][0]}</h1>
+                        <h2>{gameList[4][3]}W {gameList[4][4]}L</h2>
+                        <h2>Solo/Duo Queue</h2>
+                      </div>
                   </div>
                   )
                   
