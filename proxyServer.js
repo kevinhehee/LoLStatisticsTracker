@@ -26,7 +26,7 @@ function getPlayerDATA(playerName) {
             userInfo.push(response.data.name);
             userInfo.push(response.data.summonerLevel);
             userInfo.push(response.data.profileIconId);
-            userInfo.push(response.data.id  )
+            userInfo.push(response.data.id)
             // userInfo.push(response.data.id)
             // console.log(response.data);
             return response.data;
@@ -103,15 +103,47 @@ function getRankedInfo(id)
     .then(response =>
         {
             // console.log("https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + id + "?api_key=" + API_KEY);
-            // console.log(response.data);
+            console.log(response.data);
 
-            if (response.data.length !== 0)
+
+            for (let i = 0; i < response.data.length; i++)
             {
-                rankedInfo.push(response.data[0].tier);
-                rankedInfo.push(response.data[0].rank);
-                rankedInfo.push(response.data[0].leaguePoints);
-                rankedInfo.push(response.data[0].wins);
-                rankedInfo.push(response.data[0].losses);
+                if (response.data[i].queueType == "RANKED_SOLO_5x5")
+                {
+                    rankedInfo.push(response.data[i].tier);
+                    rankedInfo.push(response.data[i].rank);
+                    rankedInfo.push(response.data[i].leaguePoints);
+                    rankedInfo.push(response.data[i].wins);
+                    rankedInfo.push(response.data[i].losses);
+                    break;
+
+                }
+            }
+
+            // if (response.data.length == 1 && response.data[0].queueType == "RANKED_SOLO_5x5")
+            // {
+            //     rankedInfo.push(response.data[0].tier);
+            //     rankedInfo.push(response.data[0].rank);
+            //     rankedInfo.push(response.data[0].leaguePoints);
+            //     rankedInfo.push(response.data[0].wins);
+            //     rankedInfo.push(response.data[0].losses);
+            // }
+            // else if (response.data.length == 2 && response.data[1].queueType == "RANKED_SOLO_5x5")
+            // {
+            //     rankedInfo.push(response.data[1].tier);
+            //     rankedInfo.push(response.data[1].rank);
+            //     rankedInfo.push(response.data[1].leaguePoints);
+            //     rankedInfo.push(response.data[1].wins);
+            //     rankedInfo.push(response.data[1].losses);
+            // }
+            // else
+            if (rankedInfo.length != 5)
+            {
+                rankedInfo[0] = "Unranked";
+                rankedInfo[1] = "";
+                rankedInfo[2] = "0";
+                rankedInfo[3] = "0";
+                rankedInfo[4] = "0";
             }
         }
         ).catch(err => err);
@@ -140,6 +172,7 @@ app.get('/past5Games', async (req, res) => {
     // console.log(gameIDs);
 
 
+    // var emptySpace = "                                                                                                                                                                                                                                                                                                                                                                                                                      ";
 
     var matchDataArray = [];
     for (let i = 0; i < gameIDs.length - 15; i++)
@@ -154,15 +187,26 @@ app.get('/past5Games', async (req, res) => {
         // console.log(matchData);
     }
     console.log(champNames);
+    // for (let i = 0; i < 5; i++)
+    // {
+    //     userInfo.push(emptySpace);
+    //     userChampIDs.push(emptySpace);
+    //     champNames.push(emptySpace);
+    //     rankedInfo.push(emptySpace);
+    // }
+
     var allDATA = [userInfo, matchDataArray, userChampIDs, champNames, rankedInfo];
+    
     res.json(allDATA);
-    for (let i = 0; i < 6; i++)
+    
+    for (let i = 0; i < 11; i++)
     {
         userInfo.pop();
         userChampIDs.pop();
         champNames.pop();
         rankedInfo.pop();
     }
+    userInfo, matchDataArray, userChampIDs, champNames, rankedInfo = [];
 })
 
 
