@@ -155,34 +155,38 @@ function App() {
 
         
           {gameList[0].length !== 0 ?
-            <div className = "rightdataContainer">
+            <div className = "matchdataContainer">
               {
                 gameList[1].map((gameData,index) => 
                   <div className = "gameContainer">
-                    <h2>Game {index + 1}</h2>
+                    <h2>
                     {gameData.info.gameMode == "ARAM" ? 
                       (
-                        <h2>ARAM</h2> 
+                        <p>ARAM</p> 
                       ) 
                       : 
-                      (gameData.info.gameMode == "Classic" ? 
+                      (
+                        gameData.info.gameMode == "Classic" ? 
                         (
-                          <h2>5v5</h2>
-                        ) : 
+                          <p>5v5</p>
+                        ) 
+                        : 
                         (
-                          <h2>Arena</h2>
-                        )
-                        
+                          <p>Arena</p>
+                        )   
                       )
-                      }
-                    
-                    
+                    }
+                    </h2>
+
                       {gameData.info.participants.map((data, participantIndex) => (data.win === true
                         ?
                         (
                         <div className = "gameDataContainer">
                           <div className = "playerInfoContainer" style = {{backgroundColor: "lightblue" }}>
-                            <p className = "playerInfo">{(data.summonerName).substr(0, 10)},<br></br>{data.kills}/{data.deaths}/{data.assists} <br></br>({((data.kills + data.assists) / data.deaths).toFixed(2)})</p>
+                            <p className = "playerInfo">{(data.summonerName).substr(0, 10)},
+                              <br></br>{data.kills}/{data.deaths}/{data.assists} 
+                              <br></br>({((data.kills + data.assists) / data.deaths).toFixed(2)})
+                            </p>
                             <div className = "champIcon">
                               <p> <img style = {{width: "50px", height: "50px"}} src = {"https://ddragon.leagueoflegends.com/cdn/13.12.1/img/champion/" + data.championName + ".png"} alt = "champIcon"></img></p>
                             </div>
