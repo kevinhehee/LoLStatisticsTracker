@@ -26,7 +26,7 @@ function getPlayerDATA(playerName) {
             userInfo.push(response.data.name);
             userInfo.push(response.data.summonerLevel);
             userInfo.push(response.data.profileIconId);
-            userInfo.push(response.data.id  )
+            userInfo.push(response.data.id)
             // userInfo.push(response.data.id)
             // console.log(response.data);
             return response.data;
@@ -113,6 +113,13 @@ function getRankedInfo(id)
                 rankedInfo.push(response.data[0].wins);
                 rankedInfo.push(response.data[0].losses);
             }
+            
+            if (rankedInfo[0] == null)
+            {
+                rankedInfo[0] = "Unranked";
+                rankedInfo[1] = 0;
+            }
+
         }
         ).catch(err => err);
 }
@@ -140,6 +147,7 @@ app.get('/past5Games', async (req, res) => {
     // console.log(gameIDs);
 
 
+    var emptySpace = "                                                                                                                                                                                                                                                                                                                                                                                                                      ";
 
     var matchDataArray = [];
     for (let i = 0; i < gameIDs.length - 15; i++)
@@ -154,15 +162,25 @@ app.get('/past5Games', async (req, res) => {
         // console.log(matchData);
     }
     console.log(champNames);
-    var allDATA = [userInfo, matchDataArray, userChampIDs, champNames, rankedInfo];
-    res.json(allDATA);
-    for (let i = 0; i < 6; i++)
+    for (let i = 0; i < 5; i++)
     {
-        userInfo.pop();
-        userChampIDs.pop();
-        champNames.pop();
-        rankedInfo.pop();
+        userInfo.push(emptySpace);
+        userChampIDs.push(emptySpace);
+        champNames.push(emptySpace);
+        rankedInfo.push(emptySpace);
     }
+
+    var allDATA = [userInfo, matchDataArray, userChampIDs, champNames, rankedInfo];
+    
+    res.json(allDATA);
+    // for (let i = 0; i < 11; i++)
+    // {
+    //     userInfo.pop();
+    //     userChampIDs.pop();
+    //     champNames.pop();
+    //     rankedInfo.pop();
+    // }
+    userInfo, matchDataArray, userChampIDs, champNames, rankedInfo = [];
 })
 
 

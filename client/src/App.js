@@ -151,6 +151,22 @@ function App() {
                 gameList[1].map((gameData,index) => 
                   <div className = "gameContainer">
                     <h2>Game {index + 1}</h2>
+                    {gameData.info.gameMode == "ARAM" ? 
+                      (
+                        <h2>ARAM</h2> 
+                      ) 
+                      : 
+                      (gameData.info.gameMode == "Classic" ? 
+                        (
+                          <h2>5v5</h2>
+                        ) : 
+                        (
+                          <h2>Arena</h2>
+                        )
+                        
+                      )
+                      }
+                    
                     
                       {gameData.info.participants.map((data, participantIndex) => (data.win === true
                         ?
