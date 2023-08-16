@@ -49,11 +49,11 @@ body
 
 }
 
-.leftdataContainer
+.allRanksContainer
 {
   display: flex;
   flex: 1;
-  flex-direction: column;
+  flex-direction: row;
   background-color: green;
   font-family: searchFont;
   
@@ -129,6 +129,7 @@ body
 .rankPortraitContainer
 {
   flex: 1;
+  flex-direction: row;
 }
 
 .rankInfoContainer
@@ -137,18 +138,13 @@ body
   flex: 1;
   overflow: visible;
   width: fit-content;
-}
-
-.rankInfoContainer
-{
-  display: flex;
-  flex: 1;
   background-color: pink;
 }
 
 .rankIcon
 {
   flex: 1;
+  padding-bottom: 0px;
   
 }
 
@@ -157,11 +153,15 @@ body
   flex: 1.5;
   text-align: center;
   padding-right: 10px;
+  margin: auto;
 }
 
 .rankIcon > h2
 {
-  font-size: 20px;
+  font-size: 30px;
+  flex: 1.5;
+  text-align: center;
+  padding-right: 10px;
 }
 
 
