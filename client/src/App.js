@@ -6,9 +6,6 @@ function App() {
   const [searchText, setSearchText] = useState("");
   const [gameList, setGameList] = useState([[]]);
 
-  
-
-
   function getPlayerGames(event) {
     axios.get("http://localhost:4000/past5Games", { params: { username: searchText}})
     .then(function (response) {
@@ -28,9 +25,6 @@ function App() {
           <button className = "searchbutton" onClick = {getPlayerGames}>Search</button>
       </div>
       <div className = "restcontainer">
-        
-            
-        
           {gameList[0].length !== 0 ? 
           <div className = "allRanksContainer">
               <div className = "userInfoContainer">
