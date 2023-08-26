@@ -2,10 +2,12 @@ var express = require('express');
 var cors = require('cors');
 const axios = require('axios');
 require('dotenv').config();
-
 var app = express();
 
 app.use(cors());
+
+
+const {getPlayerDATA} =  require('./components/getPlayerDATA.js')
 
 // const [userInfo, setuserInfo] = useState("");
 let userInfo = [];
@@ -17,23 +19,6 @@ let arenaRankedInfo = [];
 let allGamesInfo = [];
 
 const API_KEY = process.env.LOL_API_KEY;
-
-function getPlayerDATA(playerName) {
-    return axios.get("https://na1.api.riotgames.com" + "/lol/summoner/v4/summoners/by-name/" + playerName + "?api_key=" + API_KEY)
-        .then(response => {
-            if (playerName = null)
-            {
-                return null;
-            }
-            userInfo.push(response.data.name);
-            userInfo.push(response.data.summonerLevel);
-            userInfo.push(response.data.profileIconId);
-            userInfo.push(response.data.id)
-            // userInfo.push(response.data.id)
-            // console.log(response.data);
-            return response.data;
-        }).catch(err => err);
-}
 
 function getPlayerCHAMP(PUUID) 
 {
@@ -183,12 +168,19 @@ app.get('/past5Games', async (req, res) => {
 
     const playerName = req.query.username;
     // PUUID
-    const playerData = await getPlayerDATA(playerName);
-    const PUUID = playerData.puuid;
+    // const playerData = await getPlayerDATA(playerName);
+    
+    userInfo = await getPlayerDATA(playerName);
+    console.log(userInfo);
+    console.log(userInfo[4]);
+
+    const ID = userInfo[3];
+    const PUUID = userInfo[4];
+    
     const playerChamp = await getPlayerCHAMP(PUUID);
     console.log(userChampIDs);
     // console.log(playerData.id);
-    const rankInfo = await getRankedInfo(playerData.id);
+    const rankInfo = await getRankedInfo(ID);
 
     const work = await getChampfromID(PUUID);
     const API_CALL = "https://americas.api.riotgames.com" + "/lol/match/v5/matches/by-puuid/" + PUUID + "/ids" + "?api_key=" + API_KEY;
