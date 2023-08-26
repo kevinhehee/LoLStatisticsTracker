@@ -20,23 +20,6 @@ let allGamesInfo = [];
 
 const API_KEY = process.env.LOL_API_KEY;
 
-// function getPlayerDATA(playerName) {
-//     return axios.get("https://na1.api.riotgames.com" + "/lol/summoner/v4/summoners/by-name/" + playerName + "?api_key=" + API_KEY)
-//         .then(response => {
-//             if (playerName = null)
-//             {
-//                 return null;
-//             }
-//             userInfo.push(response.data.name);
-//             userInfo.push(response.data.summonerLevel);
-//             userInfo.push(response.data.profileIconId);
-//             userInfo.push(response.data.id)
-//             // userInfo.push(response.data.id)
-//             // console.log(response.data);
-//             return response.data;
-//         }).catch(err => err);
-// }
-
 function getPlayerCHAMP(PUUID) 
 {
     return axios.get("https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/" + userInfo[3] + "/top?api_key=" + API_KEY)
