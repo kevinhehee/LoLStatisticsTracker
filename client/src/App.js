@@ -23,25 +23,72 @@ function App() {
           {gameList[0].length !== 0 ? 
           <div className = "allRanksContainer">
               <div className = "userInfoContainer">
-                
-              <div className = "searchcontainer">
-                <h1>LoL Player Search</h1>
-                <input className = "searchbar" type = "text" onChange={e => setSearchText(e.target.value)}></input>
-                <button className = "searchbutton" onClick = {getPlayerGames}>Search</button>
-              </div>
+                  
+                <div className = "searchcontainer">
+                  <h1>LoL Player Search</h1>
+                  <input className = "searchbar" type = "text" onChange={e => setSearchText(e.target.value)}></input>
+                  <button className = "searchbutton" onClick = {getPlayerGames}>Search</button>
+                </div>
               
                 <div className = "summonerName">
-                  <h1>{gameList[0][0]}</h1> 
-                  <img min-width = "50%" min-height = "50%" src = {"http://ddragon.leagueoflegends.com/cdn/13.11.1/img/profileicon/" + 
-                      gameList[0][2] + ".png"} alt = "profile icon">
-                  </img>
-                  <p>Level {gameList[0][1]}</p>
+                  
                 </div>
+
                 <div className = "champSplashContainer">
 
-                  <div className = "HighestMastery">
-                    <h1 style = {{textAlign: 'center'}} >Highest Mastery</h1>
+
+                  <div className = "userIconContainer">
+                    <div className = "userIcon">
+                    
+                      <h1>{gameList[0][0]}</h1> 
+                      
+                      <h2>Level {gameList[0][1]}</h2>
+
+
+                    </div>
+                    <img width = "30%" src = {"http://ddragon.leagueoflegends.com/cdn/13.15.1/img/profileicon/" + 
+                      gameList[0][2] + ".png"} alt = "profile icon">
+                    </img>
+
+                  {gameList[4].length !== 0 && gameList[4][0] != "Unranked" ?
+                  (
+                    
+                  <div className = "rankInfoContainer">
+                      
+                      <div className = "rankIcon">
+                        <h2>Solo/Duo</h2>
+                        <img width = "200px" height = "200px" src = {require("./images/emblem-" + gameList[4][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
+                      </div>
+                      
+                      <div className = "rankStats">
+                        <h1>{gameList[4][0]} {gameList[4][1]} {gameList[4][2]} LP</h1>
+                        <h2>{gameList[4][3]}W {gameList[4][4]}L</h2>
+                        <h2>{((gameList[4][3] / (gameList[4][3] + gameList[4][4])) * 100).toFixed(2)}% Win Rate</h2>
+                        
+                      </div>
                   </div>
+                  )
+                  :
+                  (
+                  <div className = "rankInfoContainer">
+                    <div className = "rankIcon">
+                        <img width = "200px" height = "200px" src = {require("./images/emblem-" + gameList[4][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
+                    </div>
+                    <div className = "rankStats">
+                        <h1>{gameList[4][0]}</h1>
+                        <h2>{gameList[4][3]}W {gameList[4][4]}L</h2>
+                        <h2>Solo/Duo</h2>
+                    </div>
+                  </div>
+                  )
+                  }
+                  </div>
+                  
+                  
+                  
+                  {/* <div className = "HighestMastery">
+                    <h1 style = {{textAlign: 'center'}} >Highest Mastery</h1>
+                  </div> */}
 
             
                   <div className = "SplashContainer">
@@ -87,43 +134,7 @@ function App() {
               </div>
 
               <div className = "rankPortraitContainer">
-                  {gameList[4].length !== 0 && gameList[4][0] != "Unranked" ?
-                  (
-                    
-                  <div className = "rankInfoContainer">
-                      
-                      <div className = "rankIcon">
-                        <h2>Solo/Duo</h2>
-                        <img width = "200px" height = "200px" src = {require("./images/emblem-" + gameList[4][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
-                      </div>
-
-                      
-                      
-                      <div className = "rankStats">
-                        <h1>{gameList[4][0]} {gameList[4][1]} {gameList[4][2]} LP</h1>
-                        <h2>{gameList[4][3]}W {gameList[4][4]}L</h2>
-                        <h2>{((gameList[4][3] / (gameList[4][3] + gameList[4][4])) * 100).toFixed(2)}% Win Rate</h2>
-                        
-                      </div>
-                  </div>
-                  )
-                  :
-                  (
-                  <div className = "rankInfoContainer">
-                    <div className = "rankIcon">
-                        <img width = "200px" height = "200px" src = {require("./images/emblem-" + gameList[4][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
-                    </div>
-                    <div className = "rankStats">
-                        <h1>{gameList[4][0]}</h1>
-                        <h2>{gameList[4][3]}W {gameList[4][4]}L</h2>
-                        <h2>Solo/Duo</h2>
-                    </div>
-                  </div>
-                  )
-                  }
                   
-                {/* <div className = "portraitContainer">  
-                </div> */}
 
                   {gameList[5].length !== 0 && gameList[5][0] != "Unranked" ?
                   (
@@ -132,7 +143,7 @@ function App() {
                       
                       <div className = "rankIcon">
                         <h2>Flex</h2>
-                        <img width = "200px" height = "200px" src = {require("./images/emblem-" + gameList[5][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
+                        <img width = "160px" height = "160px" src = {require("./images/emblem-" + gameList[5][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
                       </div>
                       <div className = "rankStats">
                         <h1>{gameList[5][0]} {gameList[5][1]} {gameList[5][2]} LP</h1>
@@ -146,7 +157,7 @@ function App() {
                   (
                   <div className = "rankInfoContainer">
                     <div className = "rankIcon">
-                        <img width = "200px" height = "200px" src = {require("./images/emblem-" + gameList[5][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
+                        <img width = "160px" height = "160px" src = {require("./images/emblem-" + gameList[5][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
                     </div>
                     <div className = "rankStats">
                         <h1>{gameList[5][0]}</h1>
@@ -227,7 +238,7 @@ function App() {
                               <br></br>({((data.kills + data.assists) / data.deaths).toFixed(2)})
                             </p>
                             <div className = "champIcon">
-                              <p> <img style = {{width: "50px", height: "50px"}} src = {"https://ddragon.leagueoflegends.com/cdn/13.12.1/img/champion/" + data.championName + ".png"} alt = "champIcon"></img></p>
+                              <p> <img style = {{width: "50px", height: "50px"}} src = {"https://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/" + data.championName + ".png"} alt = "champIcon"></img></p>
                             </div>
                           </div>
                         </div>
@@ -238,7 +249,7 @@ function App() {
                           <div className = "playerInfoContainer" style = {{backgroundColor: "red"}}>
                             <p className = "playerInfo">{data.summonerName.substr(0,10)},<br></br>{data.kills}/{data.deaths}/{data.assists} <br></br>({((data.kills + data.assists) / data.deaths).toFixed(2)})</p>
                             <div className = "champIcon">
-                              <p ><img style = {{width: "50px", height: "50px"}} src = {"https://ddragon.leagueoflegends.com/cdn/13.12.1/img/champion/" + data.championName + ".png"} alt = "champIcon"></img></p>
+                              <p ><img style = {{width: "50px", height: "50px"}} src = {"https://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/" + data.championName + ".png"} alt = "champIcon"></img></p>
                             </div>
                           </div>
                         </div>
