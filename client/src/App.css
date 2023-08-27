@@ -30,21 +30,27 @@ body
   /* background-image: url(../public/images/worlds2020background.jpg); */
   /* background-size:cover; */
   /* background-blend-mode: color-burn; */
-  background-color: rgba(212, 134, 134, 0.21);
+  background-color: aliceblue;
   /* background-repeat: no-repeat; */
   /* background-attachment: fixed; */
-  display: flex;
-  flex-direction: row;
 }
+
+/* .background
+{
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color:aliceblue;
+} */
 
 .page
 {
   display: flex;
   flex-direction: row; 
-  min-width: 98vw;
+  min-width: 50vw;
   min-height: 100%;
   align-content: center;
   margin: auto;
+  background-color: aliceblue;
 
 
 }
@@ -293,7 +299,7 @@ body
 {
   display: flex;
   flex: 2;
-  background-color: black;
+  background-color: aliceblue;
   flex-direction: column;
   align-items: center;
   padding: 40px;
@@ -305,14 +311,17 @@ body
 {
   font-family: LoLfont;
   font-size: 50px;
-  color: aliceblue;
+  color: blue;
 }
 
 .searchcontainer > p
 {
+
+  margin-bottom: auto;
+  padding-top: 70px;
   font-family: searchFont;
-  font-size: 40px;
-  color: aliceblue;
+  font-size: 14px;
+  color: black;
 }
 
 .searchbar
@@ -338,4 +347,13 @@ body
   font-size: 20px;
   font-family: searchFont;
   size: 1000px;
+}
+
+.credit
+{
+  display: flex;
+  margin: auto;
+  padding-left: 3px;
+  background-color: aliceblue;
+
 }
