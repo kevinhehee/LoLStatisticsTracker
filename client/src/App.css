@@ -41,7 +41,7 @@ body
 {
   display: flex;
   flex-direction: row; 
-  min-width: 100vw;
+  min-width: 98vw;
   min-height: 100%;
   align-content: center;
   margin: auto;
@@ -72,6 +72,7 @@ body
 .summonerName
 {
   text-align: center;
+  background-color: aliceblue;
 }
 
 
@@ -92,8 +93,30 @@ body
 {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 5;
 }
+
+.userIconContainer
+{
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  background-color: blue;
+  
+
+
+}
+
+.userIcon
+{
+  padding: 20px;
+  font-size: 20px;
+
+}
+
+
+
+
 
 .HighestMastery
 {
@@ -118,17 +141,19 @@ body
 .champName
 {
   font-size: 40px;
+  margin: auto;
 
 }
 
 .masteryPoints
 {
   font-size: 20px;
+  margin: auto;
 }
 
 .rankPortraitContainer
 {
-  flex: 1;
+  flex: 0;
   flex-direction: row;
 }
 
@@ -143,6 +168,8 @@ body
 
 .rankIcon
 {
+  justify-self:auto;
+  text-align: center;
   flex: 1;
   padding-bottom: 0px;
   
@@ -257,6 +284,7 @@ body
   display: flex;
   flex-direction: column;
   flex: 1;
+  /* flex-grow: 1; */
 
 }
 
