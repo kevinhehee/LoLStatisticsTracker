@@ -19,15 +19,16 @@ function App() {
 
   return (
     <div className = "page">
-      <div className = "searchcontainer">
-          <h1>LoL Player Search</h1>
-          <input className = "searchbar" type = "text" onChange={e => setSearchText(e.target.value)}></input>
-          <button className = "searchbutton" onClick = {getPlayerGames}>Search</button>
-      </div>
       <div className = "restcontainer">
           {gameList[0].length !== 0 ? 
           <div className = "allRanksContainer">
               <div className = "userInfoContainer">
+                
+              <div className = "searchcontainer">
+                <h1>LoL Player Search</h1>
+                <input className = "searchbar" type = "text" onChange={e => setSearchText(e.target.value)}></input>
+                <button className = "searchbutton" onClick = {getPlayerGames}>Search</button>
+              </div>
               
                 <div className = "summonerName">
                   <h1>{gameList[0][0]}</h1> 
@@ -80,9 +81,9 @@ function App() {
                   
                 </div>
                 
-                <div>
+                {/* <div>
                     Replace with CS per minute, 
-                </div>
+                </div> */}
               </div>
 
               <div className = "rankPortraitContainer">
@@ -183,9 +184,11 @@ function App() {
 
             </div>
           :
-          <div className = "leftdataContainer">
-          No player
-          </div>
+
+          null
+          // <div className = "leftdataContainer">
+          // No player
+          // </div>
           }
 
 
@@ -248,9 +251,18 @@ function App() {
               }
             </div>
             :
-            <div className = "rightdataContainer">
-              <p>data not found</p>
+            <>    
+            <div className = "searchcontainer">
+            <h1>LoL Player Search</h1>
+            <input className = "searchbar" type = "text" onChange={e => setSearchText(e.target.value)}></input>
+            <button className = "searchbutton" onClick = {getPlayerGames}>Search</button>
             </div>
+
+            {/* <div className = "rightdataContainer">
+              <p>data not found</p>
+            </div> */}
+
+            </>
           }
 
 
