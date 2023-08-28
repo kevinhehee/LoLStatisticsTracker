@@ -21,7 +21,7 @@ let champNames = [];
 let soloRankedInfo = [];
 let flexRankedInfo = [];
 let arenaRankedInfo = [];
-let allGamesInfo = [];
+let matchDataArray = [];
 
 const API_KEY = process.env.LOL_API_KEY;
 
@@ -122,23 +122,15 @@ app.get('/past5Games', async (req, res) => {
         soloRankedInfo = rankInfo[0];
         flexRankedInfo = rankInfo[1];
 
-        console.log(soloRankedInfo);
-        console.log(flexRankedInfo);
-
     gameIDs = await getGameIDs(PUUID);
 
-        console.log(gameIDs);                                                                                                                                                                                                                                                                                                                                                                                                                   ";
-
-    let matchDataArray = [];
-
     matchDataArray = await getMatchesInfo(gameIDs);
-
 
     var allDATA = [userInfo, matchDataArray, userChampIDs, champNames, soloRankedInfo, flexRankedInfo, arenaRankedInfo];
     
     res.json(allDATA);
     
-    for (let i = 0; i < 11; i++)
+    for (let i = 0; i < 6; i++)
     {
         userInfo.pop();
         matchDataArray.pop();
@@ -146,14 +138,10 @@ app.get('/past5Games', async (req, res) => {
         champNames.pop();
         soloRankedInfo.pop();
         flexRankedInfo.pop();
-        arenaRankedInfo.pop();
         rankInfo.pop();
     }
 
-    // console.log(allDATA);
-    
-    
-    
+    console.log(allDATA);
 })
 
 
