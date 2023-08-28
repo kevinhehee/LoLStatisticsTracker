@@ -9,6 +9,7 @@ app.use(cors());
 
 const {getPlayerDATA} =  require('./components/getPlayerDATA.js')
 const {getPlayerCHAMP} = require('./components/getPlayerCHAMP.js')
+const {getChampNames} = require('./components/getChampNames.js')
 
 // const [userInfo, setuserInfo] = useState("");
 let userInfo = [];
@@ -20,70 +21,6 @@ let arenaRankedInfo = [];
 let allGamesInfo = [];
 
 const API_KEY = process.env.LOL_API_KEY;
-
-// function getPlayerCHAMP(PUUID) 
-// {
-//     return axios.get("https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/" + userInfo[3] + "/top?api_key=" + API_KEY)
-//         .then(response => {
-//             // console.log("https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/" + userInfo[3] + "/top?api_key=" + API_KEY);
-//             userChampIDs.push(response.data[0].championId);
-//             userChampIDs.push(response.data[0].championPoints);
-
-//             userChampIDs.push(response.data[1].championId);
-//             userChampIDs.push(response.data[1].championPoints);
-
-//             userChampIDs.push(response.data[2].championId);
-//             userChampIDs.push(response.data[2].championPoints);
-
-//         }).catch(err => err);
-// }
-
-function getChampfromID()
-{            
-    return axios.get("https://ddragon.leagueoflegends.com/cdn/13.15.1/data/en_US/champion.json")
-    .then(response => 
-    {
-        let allchamps = ["Aatrox","Ahri","Akali","Akshan","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe","AurelionSol","Azir","Bard","Belveth","Blitzcrank","Brand","Braum","Caitlyn","Camille","Cassiopeia","Chogath","Corki","Darius","Diana","Draven","DrMundo","Ekko","Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank","Garen","Gnar","Gragas","Graves","Gwen","Hecarim","Heimerdinger","Illaoi","Irelia","Ivern","Janna","JarvanIV","Jax","Jayce","Jhin","Jinx","KSante","Kaisa","Kalista","Karma","Karthus","Kassadin","Katarina","Kayle","Kayn","Kennen","Khazix","Kindred","Kled","KogMaw","Leblanc","LeeSin","Leona","Lillia","Lissandra","Lucian","Lulu","Lux","Malphite","Malzahar","Maokai","MasterYi","Milio","MissFortune","Mordekaiser","Morgana","Nami","Naafiri","Nasus","Nautilus","Neeko","Nidalee","Nilah","Nocturne","Nunu","Olaf","Orianna","Ornn","Pantheon","Poppy","Pyke","Qiyana","Quinn","Rakan","Rammus","RekSai","Rell","Renata","Renekton","Rengar","Riven","Rumble","Ryze","Samira","Sejuani","Senna","Seraphine","Sett","Shaco","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona","Soraka","Swain","Sylas","Syndra","TahmKench","Taliyah","Talon","Taric","Teemo","Thresh","Tristana","Trundle","Tryndamere","TwistedFate","Twitch","Udyr","Urgot","Varus","Vayne","Veigar","Velkoz","Vex","Vi","Viego","Viktor","Vladimir","Volibear","Warwick","MonkeyKing","Xayah","Xerath","XinZhao","Yasuo","Yone","Yorick","Yuumi","Zac","Zed","Zeri","Ziggs","Zilean","Zoe","Zyra"];
-
-        for (let i = 0; i < allchamps.length; i++)
-        {
-            var check = response.data.data[allchamps[i]];
-
-            if(check.key === userChampIDs[0].toString())
-            {
-                
-                champNames.push(check.id);
-                champNames.push(check.name);
-                break;
-            }
-        }
-
-        for (let i = 0; i < allchamps.length; i++)
-        {
-            var check = response.data.data[allchamps[i]];
-            
-
-            if(check.key === userChampIDs[2].toString())
-            {
-                champNames.push(check.id);
-                champNames.push(check.name);
-                break;
-            }
-        }
-
-        for (let i = 0; i < allchamps.length; i++)
-        {
-            var check = response.data.data[allchamps[i]];
-            
-            if(check.key === userChampIDs[4].toString())
-            {
-                champNames.push(check.id);
-                champNames.push(check.name);
-                break;
-            }
-        }
-    }).catch(err => err);
-}
 
 function getRankedInfo(id)
 {
@@ -175,10 +112,11 @@ app.get('/past5Games', async (req, res) => {
 
     userChampIDs = await getPlayerCHAMP(ID);
 
+    champNames = await getChampNames(userChampIDs[0], userChampIDs[2], userChampIDs[4]);
 
     const rankInfo = await getRankedInfo(ID);
 
-    const work = await getChampfromID();
+    
     const API_CALL = "https://americas.api.riotgames.com" + "/lol/match/v5/matches/by-puuid/" + PUUID + "/ids" + "?api_key=" + API_KEY;
     // console.log(API_CALL);
     // API call to find list of game IDs
