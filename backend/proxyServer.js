@@ -12,6 +12,7 @@ const {getPlayerCHAMP} = require('./components/getPlayerCHAMP.js')
 const {getChampNames} = require('./components/getChampNames.js')
 const {getRanked} = require('./components/getRanked.js')
 const {getGameIDs} = require('./components/getGameIDs.js')
+const {getMatchesInfo} = require('./components/getMatchesInfo.js')
 
 // const [userInfo, setuserInfo] = useState("");
 let userInfo = [];
@@ -124,44 +125,14 @@ app.get('/past5Games', async (req, res) => {
         console.log(soloRankedInfo);
         console.log(flexRankedInfo);
 
-
     gameIDs = await getGameIDs(PUUID);
 
-    console.log(gameIDs);
-    
-    // const API_CALL = "https://americas.api.riotgames.com" + "/lol/match/v5/matches/by-puuid/" + PUUID + "/ids" + "?api_key=" + API_KEY;
-    // console.log(API_CALL);
-    // API call to find list of game IDs
-    // const gameIDs = await axios.get(API_CALL)
-    //     .then(response => response.data)
-    //     .catch(err => err)
-        // list of game ID strings
+        console.log(gameIDs);                                                                                                                                                                                                                                                                                                                                                                                                                   ";
 
-    // console.log(gameIDs);
+    let matchDataArray = [];
 
+    matchDataArray = await getMatchesInfo(gameIDs);
 
-    // var emptySpace = "                                                                                                                                                                                                                                                                                                                                                                                                                      ";
-
-    var matchDataArray = [];
-    for (let i = 0; i < gameIDs.length; i++)
-    {
-        const matchID = gameIDs[i];
-        const matchData = await axios.get("https://americas.api.riotgames.com/lol/match/v5/matches/" + matchID + "?api_key=" + API_KEY)
-            .then(response => response.data)
-            .catch(err => err)
-        // console.log("https://americas.api.riotgames.com/lol/match/v5/matches/" + matchID + "?api_key=" + API_KEY);
-        matchDataArray.push(matchData);
-        
-        // console.log(matchData);
-    }
-    // console.log(champNames);
-    // for (let i = 0; i < 5; i++)
-    // {
-    //     userInfo.push(emptySpace);
-    //     userChampIDs.push(emptySpace);
-    //     champNames.push(emptySpace);
-    //     rankedInfo.push(emptySpace);
-    // }
 
     var allDATA = [userInfo, matchDataArray, userChampIDs, champNames, soloRankedInfo, flexRankedInfo, arenaRankedInfo];
     
