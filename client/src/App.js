@@ -61,7 +61,7 @@ function App() {
                         
                         <div className = "rankIcon">
                           <h2>Solo/Duo</h2>
-                          <img width = "200px" height = "200px" src = {require("./images/emblem-" + gameList[4][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
+                          <img width = "160px" height = "160px" src = {require("./images/emblem-" + gameList[4][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
                         </div>
                         
                         <div className = "rankStats">
@@ -76,7 +76,7 @@ function App() {
                     (
                     <div className = "rankInfoContainer">
                       <div className = "rankIcon">
-                          <img width = "200px" height = "200px" src = {require("./images/emblem-" + gameList[4][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
+                          <img width = "240px" height = "240px" src = {require("./images/emblem-" + gameList[4][0].toLowerCase() + ".png")} alt = "rankemblem"></img>
                       </div>
                       <div className = "rankStats">
                           <h1>{gameList[4][0]}</h1>
@@ -172,7 +172,7 @@ function App() {
                     )
                     }
 
-                  <div className = "rankInfoContainer">
+                  {/* <div className = "rankInfoContainer">
                     <div className = "rankIcon">
                       <img width = "160px" height = "160px" src = {require("./images/emblem-unranked.png")} alt = "rankemblem"></img>
                     </div>
@@ -187,11 +187,8 @@ function App() {
                           <h2>{(gameList[6][0] * 1.00 / (gameList[6][0] + gameList[6][1]) * 100).toFixed(2)}% Win Rate</h2>
                         )
                       }
-                      
-                      
-                      <h2>Arena</h2>
                     </div>
-                  </div>
+                  </div> */}
                   
                 </div>
                 
