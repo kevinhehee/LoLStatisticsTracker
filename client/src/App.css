@@ -248,6 +248,9 @@ body
   background-color: green;
   flex-direction: row;
   flex: 1;
+  padding: 0;
+  margin: 0;
+  align-content: center;
 }
 
 
@@ -258,7 +261,10 @@ body
   display: flex;
   flex-direction: row;
   flex: 1;
-  align-content: space-between;
+  /* align-content: space-between; */
+  /* align-content: normal; */
+  align-items:flex-start;
+  padding: 0;
 
   white-space: nowrap;
   overflow: hidden;
@@ -268,15 +274,22 @@ body
 
 .playerInfo
 {
-  margin: 0px;
+  /* margin: 0px; */
+  margin-top: auto;
   align-content: space-between;
   width: 8%;
+  padding: 0;
 }
+
+/* .playerInfo */
 
 
 .champIcon
 {
-  margin-left: auto;
+  padding-right: 3px;
+  /* padding: 0; */
+  /* margin-right: 40%; */
+  /* margin-left: auto; */
 }
 
 

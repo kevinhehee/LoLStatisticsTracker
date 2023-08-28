@@ -222,7 +222,7 @@ function App() {
                         (
                           gameData.info.gameMode == "CLASSIC" ? 
                           (
-                            <p>Summoners Rift</p>
+                            <p>5v5</p>
                           ) 
                           : 
                           (
@@ -237,13 +237,23 @@ function App() {
                           (
                           <div className = "gameDataContainer">
                             <div className = "playerInfoContainer" style = {{backgroundColor: "lightblue" }}>
-                              <p className = "playerInfo">{(data.summonerName).substr(0, 10)},
-                                <br></br>{data.kills}/{data.deaths}/{data.assists} 
-                                <br></br>({((data.kills + data.assists) / data.deaths).toFixed(2)})
-                              </p>
                               <div className = "champIcon">
                                 <p> <img style = {{width: "50px", height: "50px"}} src = {"https://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/" + data.championName + ".png"} alt = "champIcon"></img></p>
                               </div>
+                              <p className = "playerInfo">
+                                {(data.summonerName).substr(0, 10)}<br/>
+                                {data.kills}/{data.deaths}/{data.assists}<br/>
+                                K/DA (
+                                  {data.deaths == 0 ? (
+                                    data.kills + data.assists
+                                  ) : 
+                                  (
+                                    ((data.kills + data.assists) / data.deaths).toFixed(2)
+
+                                  )
+                                  }
+                                )
+                              </p>
                             </div>
                           </div>
                           )
@@ -251,10 +261,20 @@ function App() {
                           (
                           <div className = "gameDataContainer">
                             <div className = "playerInfoContainer" style = {{backgroundColor: "red"}}>
-                              <p className = "playerInfo">{data.summonerName.substr(0,10)},<br></br>{data.kills}/{data.deaths}/{data.assists} <br></br>({((data.kills + data.assists) / data.deaths).toFixed(2)})</p>
                               <div className = "champIcon">
                                 <p ><img style = {{width: "50px", height: "50px"}} src = {"https://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/" + data.championName + ".png"} alt = "champIcon"></img></p>
                               </div>
+                              <p className = "playerInfo">
+                                {(data.summonerName).substr(0, 10)}<br/>
+                                {data.kills}/{data.deaths}/{data.assists}<br/>
+                                K/DA (
+                                  {
+                                  data.deaths == 0 ? 
+                                  (data.kills + data.assists) : 
+                                  (((data.kills + data.assists) / data.deaths).toFixed(2))
+                                  }
+                                )
+                              </p>
                             </div>
                           </div>
                           )
