@@ -129,6 +129,7 @@ app.get('/past5Games', async (req, res) => {
     var allDATA = [userInfo, matchDataArray, userChampIDs, champNames, soloRankedInfo, flexRankedInfo, arenaRankedInfo];
     
     res.json(allDATA);
+    console.log(allDATA);
     
     for (let i = 0; i < 6; i++)
     {
