@@ -33,10 +33,7 @@ function App() {
                     
                     <p>Made with 💖 by Kevin He</p>
                   </div>
-                  
-                  <div className = "summonerName">
-                    
-                  </div>
+                
 
                   <div className = "champSplashContainer">
 
@@ -207,7 +204,7 @@ function App() {
                           ?
                           (
                           <div className = "gameDataContainer">
-                            <div className = "playerInfoContainer" style = {{backgroundColor: "lightblue" }}>
+                            <div className = "playerInfoContainer" style = {{backgroundColor: "rgba(0, 239, 201, 1)" }}>
                               <div className = "champIcon">
                                 <p> <img style = {{width: "50px", height: "50px"}} src = {"https://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/" + data.championName + ".png"} alt = "champIcon"></img></p>
                               </div>
@@ -231,7 +228,7 @@ function App() {
                             :
                           (
                           <div className = "gameDataContainer">
-                            <div className = "playerInfoContainer" style = {{backgroundColor: "red"}}>
+                            <div className = "playerInfoContainer" style = {{backgroundColor: "rgba(245, 39, 39, .8)"}}>
                               <div className = "champIcon">
                                 <p ><img style = {{width: "50px", height: "50px"}} src = {"https://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/" + data.championName + ".png"} alt = "champIcon"></img></p>
                               </div>
