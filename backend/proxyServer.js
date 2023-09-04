@@ -13,6 +13,7 @@ const {getChampNames} = require('./components/getChampNames.js')
 const {getRanked} = require('./components/getRanked.js')
 const {getGameIDs} = require('./components/getGameIDs.js')
 const {getMatchesInfo} = require('./components/getMatchesInfo.js')
+const {getCsAverage} = require('./components/getCsAverage.js')
 
 // const [userInfo, setuserInfo] = useState("");
 let userInfo = [];
@@ -22,6 +23,7 @@ let soloRankedInfo = [];
 let flexRankedInfo = [];
 let arenaRankedInfo = [];
 let matchDataArray = [];
+let averageMatchData = [];
 
 const API_KEY = process.env.LOL_API_KEY;
 
@@ -126,9 +128,12 @@ app.get('/past5Games', async (req, res) => {
 
     matchDataArray = await getMatchesInfo(gameIDs);
 
-    var allDATA = [userInfo, matchDataArray, userChampIDs, champNames, soloRankedInfo, flexRankedInfo, arenaRankedInfo];
+    averageMatchData = getCsAverage(PUUID, matchDataArray);
+
+    var allDATA = [userInfo, matchDataArray, userChampIDs, champNames, soloRankedInfo, flexRankedInfo, arenaRankedInfo, averageMatchData];
     
     res.json(allDATA);
+    
     
     for (let i = 0; i < 6; i++)
     {
@@ -141,7 +146,7 @@ app.get('/past5Games', async (req, res) => {
         rankInfo.pop();
     }
 
-    console.log(allDATA);
+    // console.log(allDATA);
 })
 
 
