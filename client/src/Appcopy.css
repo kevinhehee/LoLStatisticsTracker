@@ -27,19 +27,12 @@ body
 {
   margin: 0px;
   min-height: 100vh;
-
-  background-color: rgb(217, 237, 255);
-
-
-
-/* 
-  background-image: url(../public/images/worlds2020background.jpg);
-  background-size:cover; 
-  background-blend-mode: color-burn;
-  
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-   */
+  /* background-image: url(../public/images/worlds2020background.jpg); */
+  /* background-size:cover; */
+  /* background-blend-mode: color-burn; */
+  background-color: aliceblue;
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
 }
 
 /* .background
@@ -57,7 +50,7 @@ body
   min-height: 100%;
   align-content: center;
   margin: auto;
-  /* background-color: aliceblue; */
+  background-color: aliceblue;
 
 
 }
@@ -67,7 +60,7 @@ body
   display: flex;
   flex: 1;
   flex-direction: row;
-  /* background-color: green; */
+  background-color: green;
   font-family: searchFont;
   
 }
@@ -77,7 +70,7 @@ body
   display: flex;
   flex-direction: row;
   align-content: center;
-  /* background-color: purple; */
+  background-color: purple;
   margin: 0;
 
 }
@@ -85,7 +78,7 @@ body
 .summonerName
 {
   text-align: center;
-  /* background-color: aliceblue; */
+  background-color: aliceblue;
 }
 
 
@@ -95,7 +88,7 @@ body
   flex: 1;
   display: flex;
   flex-direction: column;
-  /* background-color: aliceblue; */
+  background-color: aliceblue;
   margin: 0;
   align-content: space-between;
   text-align: justify;
@@ -114,16 +107,9 @@ body
   display: flex;
   flex-grow: 1;
   flex-direction: row;
-  justify-self: center;
-  /* background-color: darkblue; */
-  background: rgb(23,15,148);
-  background: radial-gradient(circle, rgba(23,15,148,1) 0%, rgba(1,37,145,1) 47%, rgba(0,61,84,1) 93%);
+  background-color: blue;
+  
 
-
-
-
-border-radius: 50px;
-  border-color: black;
 
 }
 
@@ -131,21 +117,7 @@ border-radius: 50px;
 {
   padding: 20px;
   font-size: 20px;
-  color: rgb(227, 242, 255);
 
-}
-
-.userIconImg
-{
-  width: 150px;
-  height: 150px;
-  margin: auto;
-  border-radius: 50px;
-  
-  /* object-fit: contain; */
-  /* transform: scale(0.5, 0.5);
-  -ms-transform: scale(0.5, 0.5);
-  -webkit-transform: scale(0.5, 0.5) */
 }
 
 
@@ -169,7 +141,7 @@ border-radius: 50px;
   flex: 1;
   flex-direction: column;
   text-align: center;
-  /* background-color: red; */
+  background-color: red;
 }
 
 .champName
@@ -197,8 +169,7 @@ border-radius: 50px;
   flex: 1;
   overflow: visible;
   width: fit-content;
-  color: rgb(227, 242, 255);
-  /* background-color: pink; */
+  background-color: pink;
 }
 
 .rankIcon
@@ -251,7 +222,7 @@ border-radius: 50px;
   display: flex;
   flex: 1;
   flex-direction: column;
-  /* background-color: blue; */
+  background-color: blue;
   font-family: searchFont;
 }
 
@@ -274,7 +245,7 @@ border-radius: 50px;
 
 .gameDataContainer
 {
-  /* background-color: green; */
+  background-color: green;
   flex-direction: row;
   flex: 1;
   padding: 0;
@@ -336,52 +307,27 @@ border-radius: 50px;
 
 }
 
-.searchContainerHome
+
+.searchcontainer
 {
   display: flex;
   flex: 2;
-  /* background-color: aliceblue; */
+  background-color: aliceblue;
   flex-direction: column;
   align-items: center;
   padding: 40px;
+
+  
 }
 
-.searchContainerHome > h1
+.searchcontainer > h1
 {
   font-family: LoLfont;
   font-size: 50px;
   color: blue;
 }
 
-.searchContainerHome > p
-{
-
-  margin-bottom: auto;
-  padding-top: 70px;
-  font-family: searchFont;
-  font-size: 14px;
-  color: black;
-}
-
-
-.searchContainerFound
-{
-  display: flex;
-  flex: 2;
-  /* background-color: aliceblue; */
-  flex-direction: column;
-  align-items: center;
-  padding: 40px;
-}
-
-.searchContainerFound > h1
-{
-  font-family: LoLfont;
-  font-size: 50px;
-  color: blue;
-}
-
-.searchContainerFound > p
+.searchcontainer > p
 {
 
   margin-bottom: auto;
@@ -403,6 +349,8 @@ border-radius: 50px;
   border: none;
   padding: 15px;
   opacity: 90%;
+
+  
   background-color: rgb(75, 75, 75);
   color: rgb(149, 135, 255);
 }
@@ -419,6 +367,6 @@ border-radius: 50px;
   display: flex;
   margin: auto;
   padding-left: 3px;
-  /* background-color: aliceblue; */
+  background-color: aliceblue;
 
 }
