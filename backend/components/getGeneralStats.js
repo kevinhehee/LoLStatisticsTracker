@@ -1,6 +1,6 @@
 
 
-function getCsAverage(PUUID, matchDataArray)
+function getGeneralStats(PUUID, matchDataArray)
 {
     // console.log(matchDataArray);
     
@@ -82,5 +82,5 @@ function getCsAverage(PUUID, matchDataArray)
 
 
 module.exports = {
-    getCsAverage
+    getGeneralStats
 }

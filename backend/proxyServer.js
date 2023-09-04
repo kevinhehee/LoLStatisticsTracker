@@ -13,7 +13,7 @@ const {getChampNames} = require('./components/getChampNames.js')
 const {getRanked} = require('./components/getRanked.js')
 const {getGameIDs} = require('./components/getGameIDs.js')
 const {getMatchesInfo} = require('./components/getMatchesInfo.js')
-const {getCsAverage} = require('./components/getCsAverage.js')
+const {getGeneralStats} = require('./components/getGeneralStats.js')
 
 // const [userInfo, setuserInfo] = useState("");
 let userInfo = [];
@@ -128,7 +128,7 @@ app.get('/past5Games', async (req, res) => {
 
     matchDataArray = await getMatchesInfo(gameIDs);
 
-    averageMatchData = getCsAverage(PUUID, matchDataArray);
+    averageMatchData = getGeneralStats(PUUID, matchDataArray);
 
     var allDATA = [userInfo, matchDataArray, userChampIDs, champNames, soloRankedInfo, flexRankedInfo, arenaRankedInfo, averageMatchData];
     
@@ -144,6 +144,7 @@ app.get('/past5Games', async (req, res) => {
         soloRankedInfo.pop();
         flexRankedInfo.pop();
         rankInfo.pop();
+        averageMatchData.pop();
     }
 
     // console.log(allDATA);
