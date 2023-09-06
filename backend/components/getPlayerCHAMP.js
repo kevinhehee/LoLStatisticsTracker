@@ -10,14 +10,14 @@ const getPlayerCHAMP = (ID) => {
         API_KEY,
     )
     .then((response) => {
-      return [
-        response.data[0].championId,
-        response.data[0].championPoints,
-        response.data[1].championId,
-        response.data[1].championPoints,
-        response.data[2].championId,
-        response.data[2].championPoints,
-      ];
+      return {
+        champ1ID : response.data[0].championId,
+        champ1Points : response.data[0].championPoints,
+        champ2ID : response.data[1].championId,
+        champ2Points : response.data[1].championPoints,
+        champ3ID : response.data[2].championId,
+        champ3Points : response.data[2].championPoints,
+      };
     })
     .catch((err) => err);
 }

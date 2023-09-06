@@ -4,7 +4,7 @@ import axios from "axios";
 
 const App = () => {
   const [searchText, setSearchText] = useState("");
-  const [gameList, setGameList] = useState([[]]);
+  const [dataList, setDataList] = useState({data : "hello"});
 
   const getPlayerGames = (event) => {
     axios
@@ -12,21 +12,21 @@ const App = () => {
         params: { username: searchText },
       })
       .then(function (response) {
-        setGameList(response.data);
+        setDataList(response.data);
       })
       .catch(function (error) {
         console.log(error);
       });
   }
 
-  console.log(gameList);
+  console.log(dataList);
 
   return (
     <div className="background">
       <div className="page">
         <div className="restcontainer">
           {
-            gameList[0].length !== 0 ? (
+            dataList.user && Object.keys(dataList.user) != 0 ? (
               <div className="allRanksContainer">
                 <div className="userInfoContainer">
                   <div className="searchContainerFound">
@@ -46,22 +46,21 @@ const App = () => {
                   <div className="champSplashContainer">
                     <div className="userIconContainer">
                       <div className="userIcon">
-                        <h1>{gameList[0][0]}</h1>
+                        <h1>{dataList.user.name}</h1>
 
-                        <h2>Level {gameList[0][1]}</h2>
+                        <h2>Level {dataList.user.summonerLevel}</h2>
                       </div>
                       <img
                         className="userIconImg"
                         src={
                           "http://ddragon.leagueoflegends.com/cdn/13.15.1/img/profileicon/" +
-                          gameList[0][2] +
+                          dataList.user.profileIconId +
                           ".png"
                         }
                         alt="profile icon"
                       ></img>
 
-                      {gameList[4].length !== 0 &&
-                      gameList[4][0] != "Unranked" ? (
+                      {dataList.soloRankedInfo.rank != "Unranked" ? (
                         <div className="rankInfoContainer">
                           <div className="rankIcon">
                             <h2>Solo/Duo</h2>
@@ -70,7 +69,7 @@ const App = () => {
                               height="160px"
                               src={require(
                                 "./images/emblem-" +
-                                  gameList[4][0].toLowerCase() +
+                                  dataList.soloRankedInfo.tier.toLowerCase() +
                                   ".png",
                               )}
                               alt="rankemblem"
@@ -79,16 +78,16 @@ const App = () => {
 
                           <div className="rankStats">
                             <h1>
-                              {gameList[4][0]} {gameList[4][1]} {gameList[4][2]}{" "}
+                              {dataList.soloRankedInfo.tier} {dataList.soloRankedInfo.rank} {dataList.soloRankedInfo.LP}{" "}
                               LP
                             </h1>
                             <h2>
-                              {gameList[4][3]}W {gameList[4][4]}L
+                              {dataList.soloRankedInfo.wins}W {dataList.soloRankedInfo.losses}L
                             </h2>
                             <h2>
                               {(
-                                (gameList[4][3] /
-                                  (gameList[4][3] + gameList[4][4])) *
+                                (dataList.soloRankedInfo.wins /
+                                  (dataList.soloRankedInfo.wins + dataList.soloRankedInfo.losses)) *
                                 100
                               ).toFixed(2)}
                               % Win Rate
@@ -103,24 +102,24 @@ const App = () => {
                               height="240px"
                               src={require(
                                 "./images/emblem-" +
-                                  gameList[4][0].toLowerCase() +
+                                dataList.soloRankedInfo.tier.toLowerCase() +
                                   ".png",
                               )}
                               alt="rankemblem"
                             ></img>
                           </div>
                           <div className="rankStats">
-                            <h1>{gameList[4][0]}</h1>
+                            <h1>{dataList.soloRankedInfo.tier}</h1>
                             <h2>
-                              {gameList[4][3]}W {gameList[4][4]}L
+                            {dataList.soloRankedInfo.wins}W {dataList.soloRankedInfo.losses}L
                             </h2>
                             <h2>Solo/Duo</h2>
                           </div>
                         </div>
                       )}
 
-                      {gameList[5].length !== 0 &&
-                      gameList[5][0] != "Unranked" ? (
+                      {Object.keys(dataList.flexRankedInfo).length !== 0 &&
+                      dataList.flexRankedInfo.tier != "Unranked" ? (
                         <div className="rankInfoContainer">
                           <div className="rankIcon">
                             <h2>Flex</h2>
@@ -129,7 +128,7 @@ const App = () => {
                               height="160px"
                               src={require(
                                 "./images/emblem-" +
-                                  gameList[5][0].toLowerCase() +
+                                dataList.flexRankedInfo.tier.toLowerCase() +
                                   ".png",
                               )}
                               alt="rankemblem"
@@ -137,16 +136,16 @@ const App = () => {
                           </div>
                           <div className="rankStats">
                             <h1>
-                              {gameList[5][0]} {gameList[5][1]} {gameList[5][2]}{" "}
+                              {dataList.flexRankedInfo.tier} {dataList.flexRankedInfo.rank} {dataList.flexRankedInfo.LP}{" "}
                               LP
                             </h1>
                             <h2>
-                              {gameList[5][3]}W {gameList[5][4]}L
+                              {dataList.flexRankedInfo.wins}W {dataList.flexRankedInfo.losses}L
                             </h2>
                             <h2>
                               {(
-                                (gameList[5][3] /
-                                  (gameList[5][3] + gameList[5][4])) *
+                                (dataList.flexRankedInfo.wins /
+                                  (dataList.flexRankedInfo.wins + dataList.flexRankedInfo.losses)) *
                                 100
                               ).toFixed(2)}
                               % Win Rate
@@ -161,16 +160,16 @@ const App = () => {
                               height="160px"
                               src={require(
                                 "./images/emblem-" +
-                                  gameList[5][0].toLowerCase() +
+                                  dataList.flexRankedInfo.tier.toLowerCase() +
                                   ".png",
                               )}
                               alt="rankemblem"
                             ></img>
                           </div>
                           <div className="rankStats">
-                            <h1>{gameList[5][0]}</h1>
+                            <h1>{dataList.flexRankedInfo.tier}</h1>
                             <h2>
-                              {gameList[5][3]}W {gameList[5][4]}L
+                              {dataList.flexRankedInfo.wins}W {dataList.flexRankedInfo.losses}L
                             </h2>
                             <h2>Flex</h2>
                           </div>
@@ -185,7 +184,7 @@ const App = () => {
                     <div className="SplashContainer">
                       <div className="champSplash">
                         <div>
-                          <p className="champName">{gameList[3][1]}</p>
+                          <p className="champName">{dataList.champNames.champ1Name}</p>
                         </div>
 
                         <img
@@ -193,53 +192,53 @@ const App = () => {
                           height="280px"
                           src={
                             "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
-                            gameList[3][0] +
+                            dataList.champNames.champ1ID +
                             "_0.jpg"
                           }
                           alt="Champion Splash"
                         ></img>
 
                         <div>
-                          <p className="masteryPoints">{gameList[2][1]} pts</p>
+                          <p className="masteryPoints">{dataList.champs.champ1Points} pts</p>
                         </div>
                       </div>
 
                       <div className="champSplash">
                         <div>
-                          <p className="champName">{gameList[3][3]}</p>
+                          <p className="champName">{dataList.champNames.champ2Name}</p>
                         </div>
                         <img
                           width="154px"
                           height="280px"
                           src={
                             "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
-                            gameList[3][2] +
+                            dataList.champNames.champ2ID +
                             "_0.jpg"
                           }
                           alt="Champion Splash"
                         ></img>
                         <div>
-                          <p className="masteryPoints">{gameList[2][3]} pts</p>
+                          <p className="masteryPoints">{dataList.champs.champ2Points} pts</p>
                         </div>
                       </div>
 
                       <div className="champSplash">
                         <div>
-                          <p className="champName">{gameList[3][5]}</p>
+                          <p className="champName">{dataList.champNames.champ3Name}</p>
                         </div>
                         <img
                           width="154px"
                           height="280px"
                           src={
                             "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
-                            gameList[3][4] +
+                            dataList.champNames.champ3ID +
                             "_0.jpg"
                           }
                           alt="Champion Splash"
                         ></img>
 
                         <div>
-                          <p className="masteryPoints">{gameList[2][5]} pts</p>
+                          <p className="masteryPoints">{dataList.champs.champ3Points} pts</p>
                         </div>
                       </div>
                     </div>
@@ -256,9 +255,9 @@ const App = () => {
             // </div>
           }
 
-          {gameList[0].length !== 0 ? (
+          {dataList.user && Object.keys(dataList.user).length != 0 ? (
             <div className="matchdataContainer">
-              {gameList[1].map((gameData, index) => (
+              {dataList.matches.map((gameData, index) => (
                 <div className="gameContainer">
                   <h2>
                     {gameData.info.gameMode == "ARAM" ? (

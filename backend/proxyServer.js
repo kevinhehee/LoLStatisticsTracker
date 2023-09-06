@@ -5,7 +5,7 @@ var app = express();
 
 app.use(cors());
 
-const { getPlayerDATA } = require("./components/getPlayerDATA.js");
+const { getUserInfo } = require("./components/getUserInfo.js");
 const { getPlayerCHAMP } = require("./components/getPlayerCHAMP.js");
 const { getChampNames } = require("./components/getChampNames.js");
 const { getRanked } = require("./components/getRanked.js");
@@ -13,40 +13,35 @@ const { getGameIDs } = require("./components/getGameIDs.js");
 const { getMatchesInfo } = require("./components/getMatchesInfo.js");
 const { getGeneralStats } = require("./components/getGeneralStats.js");
 
-
-
-
-
 app.get("/past5Games", async (req, res) => {
 
-  let userInfo = [];
-  let userChampIDs = [];
-  let champNames = [];
-  let soloRankedInfo = [];
-  let flexRankedInfo = [];
-  let arenaRankedInfo = [];
+  let userInfo = {};
+  let userChamps = {};
+  let soloRankedInfo = {};
+  let flexRankedInfo = {};
   let matchDataArray = [];
-  let averageMatchData = [];
+  let averageMatchData = {};
 
 
   const playerName = req.query.username;
-  userInfo = await getPlayerDATA(playerName);
+  userInfo = await getUserInfo(playerName);
 
-  const ID = userInfo[3];
-  const PUUID = userInfo[4];
+  const ID = userInfo.id;
+  const PUUID = userInfo.puuid;
 
-  userChampIDs = await getPlayerCHAMP(ID);
+  userChamps = await getPlayerCHAMP(ID);
 
   champNames = await getChampNames(
-    userChampIDs[0],
-    userChampIDs[2],
-    userChampIDs[4],
+    userChamps.champ1ID,
+    userChamps.champ2ID,
+    userChamps.champ3ID,
   );
+  
 
   rankInfo = await getRanked(ID);
 
-  soloRankedInfo = rankInfo[0];
-  flexRankedInfo = rankInfo[1];
+    soloRankedInfo = rankInfo.soloInfo;
+    flexRankedInfo = rankInfo.flexInfo;
 
   gameIDs = await getGameIDs(PUUID);
 
@@ -54,30 +49,20 @@ app.get("/past5Games", async (req, res) => {
 
   averageMatchData = getGeneralStats(PUUID, matchDataArray);
 
-  var allDATA = [
-    userInfo,
-    matchDataArray,
-    userChampIDs,
-    champNames,
-    soloRankedInfo,
-    flexRankedInfo,
-    averageMatchData,
-  ];
+  let allDATA = {
+    user: userInfo,
+    matches: matchDataArray,
+    champs: userChamps,
+    champNames: champNames,
+    soloRankedInfo: soloRankedInfo,
+    flexRankedInfo: flexRankedInfo,
+    averageMatchData: averageMatchData,
+  };
 
   res.json(allDATA);
 
-  for (let i = 0; i < 6; i++) {
-    userInfo.pop();
-    matchDataArray.pop();
-    userChampIDs.pop();
-    champNames.pop();
-    soloRankedInfo.pop();
-    flexRankedInfo.pop();
-    rankInfo.pop();
-    averageMatchData.pop();
-  }
-
-  // console.log(allDATA);
+  console.log(allDATA);
+  
 });
 
 app.listen(4000, function () {
