@@ -1,7 +1,7 @@
 const axios = require("axios");
 const API_KEY = process.env.LOL_API_KEY;
 
-function getChampNames(champ1, champ2, champ3) {
+const getChampNames = (champ1, champ2, champ3) => {
   return axios
     .get(
       "https://ddragon.leagueoflegends.com/cdn/13.15.1/data/en_US/champion.json",

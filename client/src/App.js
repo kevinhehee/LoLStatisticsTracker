@@ -2,11 +2,11 @@ import "./App.css";
 import { useState } from "react";
 import axios from "axios";
 
-function App() {
+const App = () => {
   const [searchText, setSearchText] = useState("");
   const [gameList, setGameList] = useState([[]]);
 
-  function getPlayerGames(event) {
+  const getPlayerGames = (event) => {
     axios
       .get("http://localhost:4000/past5Games", {
         params: { username: searchText },

@@ -1,7 +1,7 @@
 const axios = require("axios");
 const API_KEY = process.env.LOL_API_KEY;
 
-function getPlayerCHAMP(ID) {
+const getPlayerCHAMP = (ID) => {
   return axios
     .get(
       "https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/" +

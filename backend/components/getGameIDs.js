@@ -1,7 +1,7 @@
 const axios = require("axios");
 const API_KEY = process.env.LOL_API_KEY;
 
-function getGameIDs(PUUID) {
+const getGameIDs = (PUUID) => {
   return axios
     .get(
       "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/" +
@@ -10,7 +10,6 @@ function getGameIDs(PUUID) {
         API_KEY,
     )
     .then((response) => {
-      // console.log(response.data);
       return [
         response.data[0],
         response.data[1],
