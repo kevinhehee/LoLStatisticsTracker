@@ -36,9 +36,12 @@ const getGeneralStats = (PUUID, matchDataArray) => {
     averageControlWards = 0;
     averageVisionScore = 0;
   }
-  console.log([averageCS, averageVisionScore, averageControlWards]);
 
-  return [averageCS, averageVisionScore, averageControlWards];
+  return {
+    averageCS: averageCS, 
+    averageVS: averageVisionScore, 
+    ControlWards: averageControlWards,
+  };
 }
 
 

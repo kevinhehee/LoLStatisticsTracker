@@ -11,41 +11,45 @@ const getRanked = (ID) => {
     )
     .then((response) => {
 
-      let soloInfo = [];
-      let flexInfo = [];
+      let soloInfo = {};
+      let flexInfo = {};
 
       for (let i = 0; i < response.data.length; i++) {
         if (response.data[i].queueType == "RANKED_SOLO_5x5") {
-          soloInfo.push(response.data[i].tier);
-          soloInfo.push(response.data[i].rank);
-          soloInfo.push(response.data[i].leaguePoints);
-          soloInfo.push(response.data[i].wins);
-          soloInfo.push(response.data[i].losses);
+
+          soloInfo.tier = response.data[i].tier;
+          soloInfo.rank = response.data[i].rank;
+          soloInfo.LP = response.data[i].leaguePoints;
+          soloInfo.wins = response.data[i].wins;
+          soloInfo.losses = response.data[i].losses;
         } else if (response.data[i].queueType == "RANKED_FLEX_SR") {
-          flexInfo.push(response.data[i].tier);
-          flexInfo.push(response.data[i].rank);
-          flexInfo.push(response.data[i].leaguePoints);
-          flexInfo.push(response.data[i].wins);
-          flexInfo.push(response.data[i].losses);
+
+          flexInfo.tier = response.data[i].tier;
+          flexInfo.rank = response.data[i].rank;
+          flexInfo.LP = response.data[i].leaguePoints;
+          flexInfo.wins = response.data[i].wins;
+          flexInfo.losses = response.data[i].losses;
         }
       }
 
-      if (soloInfo.length != 5) {
-        soloInfo[0] = "Unranked";
-        soloInfo[1] = "";
-        soloInfo[2] = "0";
-        soloInfo[3] = "0";
-        soloInfo[4] = "0";
+      if (Object.keys(soloInfo).length != 5) {
+
+        soloInfo.tier = "Unranked";
+        soloInfo.rank = "";
+        soloInfo.LP = "0";
+        soloInfo.wins = "0";
+        soloInfo.losses = "0";
+
       }
-      if (flexInfo.length != 5) {
-        flexInfo[0] = "Unranked";
-        flexInfo[1] = "";
-        flexInfo[2] = "0";
-        flexInfo[3] = "0";
-        flexInfo[4] = "0";
+      if (Object.keys(flexInfo).length != 5) {
+        flexInfo.tier = "Unranked";
+        flexInfo.rank = "";
+        flexInfo.LP = "0";
+        flexInfo.wins = "0";
+        flexInfo.losses = "0";
       }
 
-      return [soloInfo, flexInfo];
+      return {soloInfo, flexInfo};
     })
     .catch((err) => err);
 }
