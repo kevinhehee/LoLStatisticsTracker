@@ -1,7 +1,7 @@
 const axios = require("axios");
 const API_KEY = process.env.LOL_API_KEY;
 
-async function getMatchesInfo(gameIDs) {
+const getMatchesInfo = async (gameIDs) => {
   let matchesDataList = [];
 
   for (let i = 0; i < gameIDs.length; i++) {

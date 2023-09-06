@@ -1,7 +1,7 @@
 const axios = require("axios");
 const API_KEY = process.env.LOL_API_KEY;
 
-function getRanked(ID) {
+const getRanked = (ID) => {
   return axios
     .get(
       "https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/" +
@@ -10,15 +10,11 @@ function getRanked(ID) {
         API_KEY,
     )
     .then((response) => {
-      // console.log("https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + id + "?api_key=" + API_KEY);
-
-      // console.log(response.data.length)
 
       let soloInfo = [];
       let flexInfo = [];
 
       for (let i = 0; i < response.data.length; i++) {
-        // console.log(response.data[i]);
         if (response.data[i].queueType == "RANKED_SOLO_5x5") {
           soloInfo.push(response.data[i].tier);
           soloInfo.push(response.data[i].rank);

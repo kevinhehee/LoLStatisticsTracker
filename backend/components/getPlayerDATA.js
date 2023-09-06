@@ -1,7 +1,7 @@
 const axios = require("axios");
 const API_KEY = process.env.LOL_API_KEY;
 
-function getPlayerDATA(playerName) {
+const getPlayerDATA = (playerName) => {
   return axios
     .get(
       "https://na1.api.riotgames.com" +
@@ -14,7 +14,6 @@ function getPlayerDATA(playerName) {
       if ((playerName = null)) {
         return null;
       }
-      // return response.data;
       return [
         response.data.name,
         response.data.summonerLevel,
