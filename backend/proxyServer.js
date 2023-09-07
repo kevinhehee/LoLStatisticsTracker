@@ -13,7 +13,7 @@ const { getGameIDs } = require("./components/getGameIDs.js");
 const { getMatchesInfo } = require("./components/getMatchesInfo.js");
 const { getGeneralStats } = require("./components/getGeneralStats.js");
 
-app.get("/past5Games", async (req, res) => {
+app.get("/search", async (req, res) => {
 
   let userInfo = {};
   let userChamps = {};
