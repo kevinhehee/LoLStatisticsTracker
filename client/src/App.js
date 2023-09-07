@@ -341,7 +341,7 @@ const App = () => {
           ) : (
             <>
               <div className="searchContainerHome">
-                <h1>LoL Stats</h1>
+                <h1>LoL Player Search</h1>
                 <input
                   className="searchbar"
                   type="text"
