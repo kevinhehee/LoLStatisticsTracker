@@ -4,11 +4,11 @@ import axios from "axios";
 
 const App = () => {
   const [searchText, setSearchText] = useState("");
-  const [dataList, setDataList] = useState({data : "hello"});
+  const [dataList, setDataList] = useState({data : ""});
 
   const getPlayerGames = (event) => {
     axios
-      .get("http://localhost:4000/past5Games", {
+      .get(`${process.env.REACT_APP_API_URL}/search`, {
         params: { username: searchText },
       })
       .then(function (response) {
@@ -83,14 +83,6 @@ const App = () => {
                             </h1>
                             <h2>
                               {dataList.soloRankedInfo.wins}W {dataList.soloRankedInfo.losses}L
-                            </h2>
-                            <h2>
-                              {(
-                                (dataList.soloRankedInfo.wins /
-                                  (dataList.soloRankedInfo.wins + dataList.soloRankedInfo.losses)) *
-                                100
-                              ).toFixed(2)}
-                              % Win Rate
                             </h2>
                           </div>
                         </div>
@@ -349,7 +341,7 @@ const App = () => {
           ) : (
             <>
               <div className="searchContainerHome">
-                <h1>LoL Player Search</h1>
+                <h1>LoL Stats</h1>
                 <input
                   className="searchbar"
                   type="text"
