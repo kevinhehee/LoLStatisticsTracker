@@ -43,7 +43,7 @@ const App = () => {
                     <p>Made with 💖 by Kevin He</p>
                   </div>
 
-                  <div className="champSplashContainer">
+                  <div className="nameRankSplashContainer">
                     <div className="userIconContainer">
                       <div className="userIcon">
                         <h1>{dataList.user.name}</h1>
@@ -233,13 +233,23 @@ const App = () => {
                           <p className="masteryPoints">{dataList.champs.champ3Points} pts</p>
                         </div>
                       </div>
+
+                      <div className="averageMatchStats">
+                        {dataList.averageMatchData.averageCS} CS Per Min
+                        <br/>
+                        {dataList.averageMatchData.averageVS.toFixed(0)} Vision Score Per Minute
+                        <br/>
+                        {dataList.averageMatchData.ControlWards.toFixed(0)} Control Wards Per Game
+                      </div>
+
+
                     </div>
                   </div>
+                </div>     
 
-                  {/* <div>
-                      Replace with CS per minute, 
-                  </div> */}
-                </div>
+                
+
+                
               </div>
             ) : null
             // <div className = "leftdataContainer">

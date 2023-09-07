@@ -67,7 +67,7 @@ body
   display: flex;
   flex: 1;
   flex-direction: row;
-  /* background-color: green; */
+  background-color: green;
   font-family: searchFont;
   
 }
@@ -109,11 +109,12 @@ body
   
 }
 
-.champSplashContainer
+.nameRankSplashContainer
 {
   display: flex;
   flex-direction: column;
   flex: 5;
+  background-color: pink;
 }
 
 .userIconContainer
@@ -169,14 +170,19 @@ border-radius: 50px;
 {
   display: flex;
   flex-direction: row;
+  background-color: red;
+  align-content: flex-start;
+  justify-content: flex-start;
+  
 }
 
 .champSplash
 {
-  flex: 1;
   flex-direction: column;
   text-align: center;
   color: aliceblue;
+  align-content: flex-start;
+  padding: 20px;
   /* background-color: red; */
 }
 
@@ -192,6 +198,14 @@ border-radius: 50px;
   font-size: 20px;
   margin: auto;
 }
+
+.averageMatchStats
+{
+  flex: 1;
+  background-color: lightblue;
+}
+
+
 
 .rankPortraitContainer
 {
@@ -233,6 +247,14 @@ border-radius: 50px;
   text-align: center;
   padding-right: 10px;
 }
+
+
+
+
+
+
+
+
 
 
 
