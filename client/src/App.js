@@ -41,7 +41,7 @@ const App = () => {
 
             if (userName)
             {
-              const post = await axios.post(`${process.env.REACT_APP_API_URL}/addPlayer`, {
+              const post = await axios.post(`${process.env.REACT_APP_API_URL}/search/addPlayer`, {
               "username" : userName,
               "info" : tier + " " + rank
               });
