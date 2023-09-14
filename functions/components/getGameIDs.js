@@ -11,6 +11,11 @@ const getGameIDs = (PUUID) => {
         API_KEY,
     )
     .then((response) => {
+      if (response.data.lenth < 5)
+      {
+        return [];
+      }
+
       return [
         response.data[0],
         response.data[1],

@@ -11,8 +11,16 @@ const getGeneralStats = (PUUID, matchDataArray) => {
   let summRiftCounter = 0;
   let summRiftTime = 0;
 
+  let abort = false;
+
   for (let i = 0; i < 5; i++) {
     for (let j = 0; j < 10; j++) {
+
+      if (!matchDataArray[i])
+      {
+        abort = true;
+        break;
+      }
       data = matchDataArray[i].info.participants[j];
 
       if (data.puuid == PUUID) {
@@ -27,6 +35,10 @@ const getGeneralStats = (PUUID, matchDataArray) => {
         totalVisionScore += data.visionScore;
       }
     }
+    if (abort)
+    {
+      break;
+    }
   }
   let averageCS = (totalMinions / (totalTime / 60)).toFixed(1);
   let averageVisionScore = totalVisionScore / summRiftCounter;
@@ -37,6 +49,11 @@ const getGeneralStats = (PUUID, matchDataArray) => {
     averageVisionScore = 0;
   }
 
+  if (averageCS == 'NaN')
+  {
+    averageCS = 0;
+  }
+  
   return {
     averageCS: averageCS, 
     averageVS: averageVisionScore, 
