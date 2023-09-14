@@ -3,11 +3,11 @@ const functions = require('firebase-functions');
 var express = require("express");
 var cors = require("cors");
 var app = express();
-const { db } = require('../firebase.js');
-const { FieldValue } = require('firebase-admin/firestore');
+const { db } = require('./firebase.js');
+// const { FieldValue } = require('firebase-admin/firestore');
 
 app.use(cors({ origin: 'https://league-statistics-tracker.web.app'}));
-app.use(express.json());
+// app.use(express.json());
 
 const getUserInfo = require("./components/getUserInfo");
 const { getPlayerCHAMP } = require("./components/getPlayerCHAMP.js");
@@ -72,8 +72,15 @@ app.get("", async (req, res) => {
   console.log(allDATA);
   
 });
+app.use(cors({ origin: 'https://league-statistics-tracker.web.app'}));
 
 app.post('/addPlayer', async (req, res) => {
+
+  res.setHeader('Access-Control-Allow-Origin', 'https://league-statistics-tracker.web.app','https://league-statistics-tracker.firebaseapp.com/');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  
   const { username, info} = req.body;
   const userRef = db.collection('users').doc('data')
   const res2 = await userRef.set({
