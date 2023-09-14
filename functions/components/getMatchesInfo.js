@@ -13,17 +13,14 @@ const getMatchesInfo = async (gameIDs) => {
           "?api_key=" +
           API_KEY,
       )
-      .then((response) => response.data);
-    matchesDataList.push(matchData);
+      .then((response) => {
+        matchesDataList.push(response.data);
+      })
+      .catch(error => {
+        console.log(error.response.data);
+      })
   }
-
-  return [
-    matchesDataList[0],
-    matchesDataList[1],
-    matchesDataList[2],
-    matchesDataList[3],
-    matchesDataList[4],
-  ];
+  return matchesDataList;
 }
 
 module.exports = {

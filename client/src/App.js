@@ -5,19 +5,60 @@ import axios from "axios";
 const App = () => {
   const [searchText, setSearchText] = useState("");
   const [dataList, setDataList] = useState({data : ""});
+  const [isCoolDownActive, setCoolDownActive] = useState(false);
+  const [coolDownTime, setCoolDownTime] = useState(0);
 
-  const getPlayerGames = (event) => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/search`, {
-        params: { username: searchText },
-      })
-      .then(function (response) {
-        setDataList(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+  const getPlayerGames = async (event) => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/search`, {
+          params: { username: searchText },
+        });
+        console.log(response);
+
+          if (isCoolDownActive == true)
+          {
+            console.log("cool down active");
+            return;
+          }
+          setCoolDownActive(true);
+          setCoolDownTime(5);
+
+          const interval = setInterval(() => {
+            setCoolDownTime(prevTime => prevTime - 1);
+          }, 1000);
+
+          setTimeout(() => {
+            setCoolDownActive(false);
+            clearInterval(interval);
+            setCoolDownTime(0);
+          }, 5000);
+
+          setDataList(response.data);
+
+          const userName = response.data?.user?.name;
+          const tier = response.data?.soloRankedInfo?.tier;
+          const rank = response.data?.soloRankedInfo?.rank;
+
+            if (userName)
+            {
+              const post = await axios.post(`${process.env.REACT_APP_API_URL}/addPlayer`, {
+              "username" : userName,
+              "info" : tier + " " + rank
+              });
+            }
+            else
+            {
+              console.log("info missing");
+            }
+          
+          
+          
+      } catch(error) {
+          console.log(error);
+        }
+      }
+      
+  
 
   console.log(dataList);
 
@@ -36,9 +77,10 @@ const App = () => {
                       type="text"
                       onChange={(e) => setSearchText(e.target.value)}
                     ></input>
-                    <button className="searchbutton" onClick={getPlayerGames}>
+                    <button className="searchbutton" onClick={getPlayerGames} disabled={isCoolDownActive}>
                       Search
                     </button>
+                    {isCoolDownActive && <span>Cooldown: {coolDownTime} seconds</span>}
 
                     <p>Made with 💖 by Kevin He</p>
                   </div>
@@ -347,7 +389,7 @@ const App = () => {
                   type="text"
                   onChange={(e) => setSearchText(e.target.value)}
                 ></input>
-                <button className="searchbutton" onClick={getPlayerGames}>
+                <button className="searchbutton" onClick={getPlayerGames} disabled={isCoolDownActive}>
                   Search
                 </button>
               </div>
