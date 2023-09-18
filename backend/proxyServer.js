@@ -25,6 +25,7 @@ let averageMatchData = {};
 let champNames = {}
 
 app.get("/search", async (req, res) => {
+  // console.log("COUNT");
 
   const playerName = req.query.username;
   userInfo = await getUserInfo(playerName);
@@ -90,7 +91,7 @@ app.get('/users', async (req, res) => {
   // res.status(200).send(users);
 })
 
-app.post('/search/addPlayer', async (req, res) => {
+app.post('search/addPlayer', async (req, res) => {
   const { username, info} = req.body;
   const userRef = db.collection('users').doc('data')
   const res2 = await userRef.set({

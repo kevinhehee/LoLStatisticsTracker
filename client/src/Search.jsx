@@ -1,24 +1,44 @@
 import "./styles/App.css";
 import "./styles/navigation.css"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams, useNavigate } from 'react-router-dom'
 
-const App = () => {
+
+const Search = () => {
   const [searchText, setSearchText] = useState("");
   const [dataList, setDataList] = useState({data : ""});
   const [isCoolDownActive, setCoolDownActive] = useState(false);
   const [coolDownTime, setCoolDownTime] = useState(0);
+  const { username } = useParams();
+  const [count, setCount] = useState(0);
+  const navigate = useNavigate();
 
+  console.log("GETTING PLAYER GAMES");
+
+  const handleSearch = async () => {
+    // await getPlayerGames();
+    navigate(`/search/user/${searchText}`);
+  }
+
+  useEffect(() => {
+    getPlayerGames();
+  }, [username])
+  
   const getPlayerGames = async (event) => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/search`, {
-          params: { username: searchText },
+          params: { username: username},
         });
-        console.log(response);
+        // console.log("GOING");
+        // console.log(response);
+        
+        // setCount(count + 1);
+        // console.log(count);
 
-          if (isCoolDownActive == true)
+          if (isCoolDownActive === true)
           {
-            console.log("cool down active");
+            // console.log("cool down active");
             return;
           }
           setCoolDownActive(true);
@@ -42,7 +62,7 @@ const App = () => {
 
             if (userName)
             {
-              const post = await axios.post(`${process.env.REACT_APP_API_URL}/search/addPlayer`, {
+              const post = await axios.post(`${process.env.REACT_APP_API_URL}search/addPlayer`, {
               "username" : userName,
               "info" : tier + " " + rank
               });
@@ -51,17 +71,16 @@ const App = () => {
             {
               console.log("info missing");
             }
-          
-          
-          
       } catch(error) {
           console.log(error);
         }
       }
       
-  
+      
+    
+    // console.log(dataList);
 
-  console.log(dataList);
+    
 
   return (
     <>
@@ -70,21 +89,21 @@ const App = () => {
       </div>
       
       <div className="background">
-        <div className="page">
-          <div className="restcontainer">
+        <div className="pageContainer">
+          <div className="page">
             {
-              dataList.user && Object.keys(dataList.user) != 0 ? (
+              dataList.user && Object.keys(dataList.user) && (
                 <div className="allRanksContainer">
                   <div className="userInfoContainer">
                     <div className="searchContainerFound">
-                      <h1>LoL Player Search</h1>
+                      <h1>WOOOO Player Search</h1>
                       <input
                         className="searchbar"
                         type="text"
                         onChange={(e) => setSearchText(e.target.value)}
                         placeholder="Search"
                       ></input>
-                      <button className="searchbutton" onClick={getPlayerGames} disabled={isCoolDownActive}>
+                      <button className="searchbutton" onClick={handleSearch} disabled={isCoolDownActive}>
                         Search
                       </button>
                       {isCoolDownActive && <span>Cooldown: {coolDownTime} seconds</span>}
@@ -109,7 +128,7 @@ const App = () => {
                           alt="profile icon"
                         ></img>
 
-                        {dataList.soloRankedInfo.rank != "Unranked" ? (
+                        {dataList.soloRankedInfo.rank !== "Unranked" ? (
                           <div className="rankInfoContainer">
                             <div className="rankIcon">
                               <h2>Solo/Duo</h2>
@@ -160,7 +179,7 @@ const App = () => {
                         )}
 
                         {Object.keys(dataList.flexRankedInfo).length !== 0 &&
-                        dataList.flexRankedInfo.tier != "Unranked" ? (
+                        dataList.flexRankedInfo.tier !== "Unranked" ? (
                           <div className="rankInfoContainer">
                             <div className="rankIcon">
                               <h2>Flex</h2>
@@ -290,17 +309,17 @@ const App = () => {
                     </div> */}
                   </div>
                 </div>
-              ) : null
+              )
             }
 
-            {dataList.user && Object.keys(dataList.user).length != 0 ? (
+            {dataList.user && Object.keys(dataList.user).length !== 0 ? (
               <div className="matchdataContainer">
                 {dataList.matches.map((gameData, index) => (
                   <div className="gameContainer">
                     <h2>
-                      {gameData.info.gameMode == "ARAM" ? (
+                      {gameData.info.gameMode === "ARAM" ? (
                         <p>ARAM</p>
-                      ) : gameData.info.gameMode == "CLASSIC" ? (
+                      ) : gameData.info.gameMode === "CLASSIC" ? (
                         <p>5v5</p>
                       ) : (
                         <p>Arena</p>
@@ -318,7 +337,7 @@ const App = () => {
                               <p>
                                 {" "}
                                 <img
-                                  style={{ width: "50px", height: "50px" }}
+                                  style={{ width: "40px", height: "40px" }}
                                   src={
                                     "https://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/" +
                                     data.championName +
@@ -329,12 +348,12 @@ const App = () => {
                               </p>
                             </div>
                             <p className="playerInfo">
-                              {data.summonerName.substr(0, 10)}
+                              {data.summonerName.substr(0, 13)}
                               <br />
                               {data.kills}/{data.deaths}/{data.assists}
                               <br />
                               K/DA (
-                              {data.deaths == 0
+                              {data.deaths === 0
                                 ? data.kills + data.assists
                                 : (
                                     (data.kills + data.assists) /
@@ -353,7 +372,7 @@ const App = () => {
                             <div className="champIcon">
                               <p>
                                 <img
-                                  style={{ width: "50px", height: "50px" }}
+                                  style={{ width: "40px", height: "40px" }}
                                   src={
                                     "https://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/" +
                                     data.championName +
@@ -364,12 +383,12 @@ const App = () => {
                               </p>
                             </div>
                             <p className="playerInfo">
-                              {data.summonerName.substr(0, 10)}
+                              {data.summonerName.substr(0, 13)}
                               <br />
                               {data.kills}/{data.deaths}/{data.assists}
                               <br />
                               K/DA (
-                              {data.deaths == 0
+                              {data.deaths === 0
                                 ? data.kills + data.assists
                                 : (
                                     (data.kills + data.assists) /
@@ -384,30 +403,8 @@ const App = () => {
                   </div>
                 ))}
               </div>
-            ) : (
-              <div className = "mainpage">
-                <div className="searchContainerHome">
-                  <h1>LoL Player Search</h1>
-                  <input
-                    className="searchbar"
-                    type="text"
-                    onChange={(e) => setSearchText(e.target.value)}
-                    placeholder="Search"
-                  ></input>
-                  <button className="searchbutton" onClick={getPlayerGames} disabled={isCoolDownActive}>
-                    Search
-                  </button>
-                </div>
-
-                <div className="footer">
-                  <p>Made with 💖 by Kevin He</p>
-                </div>
-
-                {/* <div className = "rightdataContainer">
-                  <p>data not found</p>
-                </div> */}
-              </div>
-            )}
+            ) : null
+            }
           </div>
         </div>
       </div>
@@ -415,4 +412,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default Search;
