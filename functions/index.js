@@ -89,4 +89,4 @@ app.post('/addPlayer', async (req, res) => {
   // res.status(200).send(users);
 })
 
-exports.search = functions.https.onRequest(app);
+exports.find = functions.https.onRequest(app);

@@ -27,7 +27,7 @@ const Search = () => {
   
   const getPlayerGames = async (event) => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/search`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}search`, {
           params: { username: username},
         });
         // console.log("GOING");

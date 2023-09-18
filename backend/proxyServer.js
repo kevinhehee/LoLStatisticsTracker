@@ -24,7 +24,7 @@ let matchDataArray = [];
 let averageMatchData = {};
 let champNames = {}
 
-app.get("/search", async (req, res) => {
+app.get("/find", async (req, res) => {
   // console.log("COUNT");
 
   const playerName = req.query.username;
