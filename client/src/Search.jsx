@@ -1,5 +1,7 @@
 import "./styles/App.css";
 import "./styles/navigation.css"
+import ChampIcon from './components/ChampIcon/ChampIcon'
+import './components/ChampIcon/ChampIcon.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from 'react-router-dom'
@@ -14,10 +16,7 @@ const Search = () => {
   const [count, setCount] = useState(0);
   const navigate = useNavigate();
 
-  console.log("GETTING PLAYER GAMES");
-
   const handleSearch = async () => {
-    // await getPlayerGames();
     navigate(`/search/user/${searchText}`);
   }
 
@@ -27,7 +26,7 @@ const Search = () => {
   
   const getPlayerGames = async (event) => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}search`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}find`, {
           params: { username: username},
         });
         // console.log("GOING");
@@ -78,7 +77,7 @@ const Search = () => {
       
       
     
-    // console.log(dataList);
+    console.log(dataList);
 
     
 
@@ -121,7 +120,7 @@ const Search = () => {
                         <img
                           className="userIconImg"
                           src={
-                            "http://ddragon.leagueoflegends.com/cdn/13.15.1/img/profileicon/" +
+                            "http://ddragon.leagueoflegends.com/cdn/13.18.1/img/profileicon/" +
                             dataList.user.profileIconId +
                             ".png"
                           }
@@ -333,20 +332,7 @@ const Search = () => {
                             className="playerInfoContainer"
                             style={{ backgroundColor: "rgba(0, 239, 201, 1)" }}
                           >
-                            <div className="champIcon">
-                              <p>
-                                {" "}
-                                <img
-                                  style={{ width: "40px", height: "40px" }}
-                                  src={
-                                    "https://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/" +
-                                    data.championName +
-                                    ".png"
-                                  }
-                                  alt="champIcon"
-                                ></img>
-                              </p>
-                            </div>
+                              <ChampIcon championId = {data.championName}/>
                             <p className="playerInfo">
                               {data.summonerName.substr(0, 13)}
                               <br />
@@ -369,19 +355,8 @@ const Search = () => {
                             className="playerInfoContainer"
                             style={{ backgroundColor: "rgba(245, 39, 39, .8)" }}
                           >
-                            <div className="champIcon">
-                              <p>
-                                <img
-                                  style={{ width: "40px", height: "40px" }}
-                                  src={
-                                    "https://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/" +
-                                    data.championName +
-                                    ".png"
-                                  }
-                                  alt="champIcon"
-                                ></img>
-                              </p>
-                            </div>
+                                <ChampIcon championId = {data.championName}/>
+                            
                             <p className="playerInfo">
                               {data.summonerName.substr(0, 13)}
                               <br />
