@@ -1,10 +1,10 @@
 import "./styles/App.css";
 import "./styles/navigation.css"
-import ChampIcon from './components/ChampIcon/ChampIcon'
-import './components/ChampIcon/ChampIcon.css';
+import MatchHistory from "./components/MatchHistory/MatchHistory";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from 'react-router-dom'
+
 
 
 const Search = () => {
@@ -312,72 +312,7 @@ const Search = () => {
             }
 
             {dataList.user && Object.keys(dataList.user).length !== 0 ? (
-              <div className="matchdataContainer">
-                {dataList.matches.map((gameData, index) => (
-                  <div className="gameContainer">
-                    <h2>
-                      {gameData.info.gameMode === "ARAM" ? (
-                        <p>ARAM</p>
-                      ) : gameData.info.gameMode === "CLASSIC" ? (
-                        <p>5v5</p>
-                      ) : (
-                        <p>Arena</p>
-                      )}
-                    </h2>
-
-                    {gameData.info.participants.map((data, participantIndex) =>
-                      data.win === true ? (
-                        <div className="gameDataContainer">
-                          <div
-                            className="playerInfoContainer"
-                            style={{ backgroundColor: "rgba(0, 239, 201, 1)" }}
-                          >
-                              <ChampIcon championId = {data.championName}/>
-                            <p className="playerInfo">
-                              {data.summonerName.substr(0, 13)}
-                              <br />
-                              {data.kills}/{data.deaths}/{data.assists}
-                              <br />
-                              K/DA (
-                              {data.deaths === 0
-                                ? data.kills + data.assists
-                                : (
-                                    (data.kills + data.assists) /
-                                    data.deaths
-                                  ).toFixed(2)}
-                              )
-                            </p>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="gameDataContainer">
-                          <div
-                            className="playerInfoContainer"
-                            style={{ backgroundColor: "rgba(245, 39, 39, .8)" }}
-                          >
-                                <ChampIcon championId = {data.championName}/>
-                            
-                            <p className="playerInfo">
-                              {data.summonerName.substr(0, 13)}
-                              <br />
-                              {data.kills}/{data.deaths}/{data.assists}
-                              <br />
-                              K/DA (
-                              {data.deaths === 0
-                                ? data.kills + data.assists
-                                : (
-                                    (data.kills + data.assists) /
-                                    data.deaths
-                                  ).toFixed(2)}
-                              )
-                            </p>
-                          </div>
-                        </div>
-                      ),
-                    )}
-                  </div>
-                ))}
-              </div>
+              <MatchHistory matches = {dataList.matches} />
             ) : null
             }
           </div>
