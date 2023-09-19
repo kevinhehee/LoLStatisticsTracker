@@ -1,0 +1,7 @@
+.champ-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 40%; /* For circular icons */
+    object-fit: cover; /* To maintain aspect ratio */
+    padding-right: 3px;
+}

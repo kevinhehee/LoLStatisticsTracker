@@ -1,8 +1,10 @@
 import "./styles/App.css";
 import "./styles/navigation.css"
+import MatchHistory from "./components/MatchHistory/MatchHistory";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from 'react-router-dom'
+
 
 
 const Search = () => {
@@ -14,10 +16,7 @@ const Search = () => {
   const [count, setCount] = useState(0);
   const navigate = useNavigate();
 
-  console.log("GETTING PLAYER GAMES");
-
   const handleSearch = async () => {
-    // await getPlayerGames();
     navigate(`/search/user/${searchText}`);
   }
 
@@ -27,7 +26,7 @@ const Search = () => {
   
   const getPlayerGames = async (event) => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}search`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}find`, {
           params: { username: username},
         });
         // console.log("GOING");
@@ -78,9 +77,7 @@ const Search = () => {
       
       
     
-    // console.log(dataList);
-
-    
+    console.log(dataList);
 
   return (
     <>
@@ -121,7 +118,7 @@ const Search = () => {
                         <img
                           className="userIconImg"
                           src={
-                            "http://ddragon.leagueoflegends.com/cdn/13.15.1/img/profileicon/" +
+                            "http://ddragon.leagueoflegends.com/cdn/13.18.1/img/profileicon/" +
                             dataList.user.profileIconId +
                             ".png"
                           }
@@ -313,96 +310,7 @@ const Search = () => {
             }
 
             {dataList.user && Object.keys(dataList.user).length !== 0 ? (
-              <div className="matchdataContainer">
-                {dataList.matches.map((gameData, index) => (
-                  <div className="gameContainer">
-                    <h2>
-                      {gameData.info.gameMode === "ARAM" ? (
-                        <p>ARAM</p>
-                      ) : gameData.info.gameMode === "CLASSIC" ? (
-                        <p>5v5</p>
-                      ) : (
-                        <p>Arena</p>
-                      )}
-                    </h2>
-
-                    {gameData.info.participants.map((data, participantIndex) =>
-                      data.win === true ? (
-                        <div className="gameDataContainer">
-                          <div
-                            className="playerInfoContainer"
-                            style={{ backgroundColor: "rgba(0, 239, 201, 1)" }}
-                          >
-                            <div className="champIcon">
-                              <p>
-                                {" "}
-                                <img
-                                  style={{ width: "40px", height: "40px" }}
-                                  src={
-                                    "https://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/" +
-                                    data.championName +
-                                    ".png"
-                                  }
-                                  alt="champIcon"
-                                ></img>
-                              </p>
-                            </div>
-                            <p className="playerInfo">
-                              {data.summonerName.substr(0, 13)}
-                              <br />
-                              {data.kills}/{data.deaths}/{data.assists}
-                              <br />
-                              K/DA (
-                              {data.deaths === 0
-                                ? data.kills + data.assists
-                                : (
-                                    (data.kills + data.assists) /
-                                    data.deaths
-                                  ).toFixed(2)}
-                              )
-                            </p>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="gameDataContainer">
-                          <div
-                            className="playerInfoContainer"
-                            style={{ backgroundColor: "rgba(245, 39, 39, .8)" }}
-                          >
-                            <div className="champIcon">
-                              <p>
-                                <img
-                                  style={{ width: "40px", height: "40px" }}
-                                  src={
-                                    "https://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/" +
-                                    data.championName +
-                                    ".png"
-                                  }
-                                  alt="champIcon"
-                                ></img>
-                              </p>
-                            </div>
-                            <p className="playerInfo">
-                              {data.summonerName.substr(0, 13)}
-                              <br />
-                              {data.kills}/{data.deaths}/{data.assists}
-                              <br />
-                              K/DA (
-                              {data.deaths === 0
-                                ? data.kills + data.assists
-                                : (
-                                    (data.kills + data.assists) /
-                                    data.deaths
-                                  ).toFixed(2)}
-                              )
-                            </p>
-                          </div>
-                        </div>
-                      ),
-                    )}
-                  </div>
-                ))}
-              </div>
+              <MatchHistory matches = {dataList.matches} />
             ) : null
             }
           </div>

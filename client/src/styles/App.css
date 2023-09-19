@@ -29,8 +29,10 @@ body
   min-height: 100vh;
 
   /* background-color: rgb(217, 237, 255); */
-  background-color: rgb(14, 143, 255);
+  /* background-color: rgb(14, 143, 255); */
 
+  background: rgb(23,15,148);
+  background: radial-gradient(circle, rgba(23,15,148,1) 0%, rgba(1,37,145,1) 47%, rgba(0,61,84,1) 93%);
 
 
 /* 
@@ -61,6 +63,7 @@ body
   min-height: 100%;
   align-content: center;
   margin: auto;
+  
 }
 
 .allRanksContainer
@@ -76,15 +79,13 @@ body
 .userInfoContainer
 {
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-content: center;
   /* background-color: purple; */
-  background: rgb(23,15,148);
-  background: radial-gradient(circle, rgba(23,15,148,1) 0%, rgba(1,37,145,1) 47%, rgba(0,61,84,1) 93%);
+  /* background: rgb(23,15,148);
+  background: radial-gradient(circle, rgba(23,15,148,1) 0%, rgba(1,37,145,1) 47%, rgba(0,61,84,1) 93%); */
 
-
-  border-bottom-right-radius: 50px;
-  border-bottom-left-radius: 0px;
 
   margin: 0;
 
@@ -257,7 +258,7 @@ border-radius: 50px;
   display: flex;
   flex: 1;
   flex-direction: column;
-  background-color: white;
+  /* background-color: rgba(113, 113, 113, 0.463); */
   font-family: searchFont;
 }
 
@@ -266,7 +267,7 @@ border-radius: 50px;
   display: flex;
   flex: 1;
   flex-direction: row;
-  padding: 10px;
+  /* padding: 10px; */
   max-width: 90vw;
   min-width: 80vw;
   /* border-radius: 50px; */
@@ -334,13 +335,6 @@ border-radius: 50px;
 /* .playerInfo */
 
 
-.champIcon
-{
-  padding-right: 3px;
-  /* padding: 0; */
-  /* margin-right: 40%; */
-  /* margin-left: auto; */
-}
 
 
 
