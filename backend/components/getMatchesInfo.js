@@ -16,7 +16,7 @@ const getMatchesInfo = async (gameIDs) => {
         matchesDataList.push(response.data);
       })
       .catch(error => {
-        console.log(error.response.data);
+        console.log(error + "FSGSFGF");
       })
   }
   return matchesDataList;

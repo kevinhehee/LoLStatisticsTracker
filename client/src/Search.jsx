@@ -79,8 +79,6 @@ const Search = () => {
     
     console.log(dataList);
 
-    
-
   return (
     <>
       <div class="navigation-container">
