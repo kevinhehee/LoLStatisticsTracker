@@ -18,32 +18,33 @@ const GameInfo = ( {gameData, win} ) => {
         color = "white";
     }
     return (
-
-        gameData.map((data, participantIndex) =>
-        (
-        <div className="gameDataContainer">
-            <div
-            className="playerInfoContainer"
-            style={{ backgroundColor: background }}
-            >
-            <ChampIcon championId = {data.championName}/>
-            <p className="playerInfo">
-                <Link to = {`/search/user/${data.summonerName}`} style={{ textDecoration: 'none', color: color}}> {data.summonerName.substr(0, 13)} </Link>
-                <br />
-                {data.kills}/{data.deaths}/{data.assists}
-                <br />
-                K/DA (
-                {data.deaths === 0
-                ? data.kills + data.assists
-                : (
-                    (data.kills + data.assists) /
-                    data.deaths
-                    ).toFixed(2)}
-                )
-            </p>
+        <div className = "backgroundColor" style={{ backgroundColor: background }}>
+            {gameData.map((data, participantIndex) =>
+            (
+            <div className="gameDataContainer">
+                <div
+                className="playerInfoContainer"
+                // style={{ backgroundColor: background }}
+                >
+                <ChampIcon championId = {data.championName}/>
+                <p className="playerInfo">
+                    <Link to = {`/search/user/${data.summonerName}`} style={{ textDecoration: 'none', color: color}}> {data.summonerName.substr(0, 13)} </Link>
+                    <br />
+                    {data.kills}/{data.deaths}/{data.assists}
+                    <br />
+                    K/DA (
+                    {data.deaths === 0
+                    ? data.kills + data.assists
+                    : (
+                        (data.kills + data.assists) /
+                        data.deaths
+                        ).toFixed(2)}
+                    )
+                </p>
+                </div>
             </div>
+            ))}
         </div>
-        ))
     )
 }
 
