@@ -2,7 +2,7 @@ import React from 'react';
 import GameType from './GameType'
 import GameInfo from './GameInfo'
 import './ChampIcon.css';
-import '../../styles/App.css'
+import './MatchHistory.css'
 
 const MatchHistory = ({ matches }) => {
 

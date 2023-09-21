@@ -1,0 +1,9 @@
+
+
+.averageStatsContainer
+{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    background-color: lightgreen;
+}

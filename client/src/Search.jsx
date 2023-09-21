@@ -5,6 +5,7 @@ import ChampMastery from "./components/ChampMastery/ChampMastery";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from 'react-router-dom'
+import AverageStats from "./components/AverageStats/AverageStats";
 
 
 
@@ -30,15 +31,9 @@ const Search = () => {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}find`, {
           params: { username: username},
         });
-        // console.log("GOING");
-        // console.log(response);
-        
-        // setCount(count + 1);
-        // console.log(count);
 
           if (isCoolDownActive === true)
           {
-            // console.log("cool down active");
             return;
           }
           setCoolDownActive(true);
@@ -235,17 +230,19 @@ const Search = () => {
                         )}
                       </div>
 
-                      {/* <div className = "HighestMastery">
-                        <h1 style = {{textAlign: 'center'}} >Highest Mastery</h1>
-                      </div> */}
+                      <div className = "MasteryGameDataContainer">
+                        <ChampMastery champNames = {dataList.champNames} champs = {dataList.champs}/>
+                        <AverageStats averageMatchData = {dataList.averageMatchData}/>
+                      </div>
 
-                      <ChampMastery champNames = {dataList.champNames} champs = {dataList.champs}/>
+                      
                     </div>
 
-                    {/* <div>
-                        Replace with CS per minute, 
-                    </div> */}
+
+                    
+                    
                   </div>
+                  
                 </div>
               )
             }
