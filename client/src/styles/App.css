@@ -165,33 +165,6 @@ border-radius: 50px;
 
 }
 
-.SplashContainer
-{
-  display: flex;
-  flex-direction: row;
-}
-
-.champSplash
-{
-  flex: 1;
-  flex-direction: column;
-  text-align: center;
-  color: aliceblue;
-}
-
-.champName
-{
-  font-size: 40px;
-  margin: auto;
-
-}
-
-.masteryPoints
-{
-  font-size: 20px;
-  margin: auto;
-}
-
 .rankPortraitContainer
 {
   flex: 0;
@@ -259,6 +232,13 @@ border-radius: 50px;
   flex: 1;
   flex-direction: column;
   /* background-color: rgba(113, 113, 113, 0.463); */
+  background-color: rgb(47, 45, 145);
+  padding: 15px;
+  border-radius: 30px;
+  
+  margin: auto;
+  margin-top: 10px;
+  outline: auto;
   font-family: searchFont;
 }
 
@@ -270,7 +250,9 @@ border-radius: 50px;
   /* padding: 10px; */
   max-width: 90vw;
   min-width: 80vw;
+  /* background-color: pink; */
   /* border-radius: 50px; */
+  /* padding: 10px; */
 }
 
 .gameContainer > h2

@@ -1,6 +1,7 @@
 import "./styles/App.css";
 import "./styles/navigation.css"
 import MatchHistory from "./components/MatchHistory/MatchHistory";
+import ChampMastery from "./components/ChampMastery/ChampMastery";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from 'react-router-dom'
@@ -238,67 +239,7 @@ const Search = () => {
                         <h1 style = {{textAlign: 'center'}} >Highest Mastery</h1>
                       </div> */}
 
-                      <div className="SplashContainer">
-                        <div className="champSplash">
-                          <div>
-                            <p className="champName">{dataList.champNames.champ1Name}</p>
-                          </div>
-
-                          <img
-                            width="154px"
-                            height="280px"
-                            src={
-                              "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
-                              dataList.champNames.champ1ID +
-                              "_0.jpg"
-                            }
-                            alt="Champion Splash"
-                          ></img>
-
-                          <div>
-                            <p className="masteryPoints">{dataList.champs.champ1Points} pts</p>
-                          </div>
-                        </div>
-
-                        <div className="champSplash">
-                          <div>
-                            <p className="champName">{dataList.champNames.champ2Name}</p>
-                          </div>
-                          <img
-                            width="154px"
-                            height="280px"
-                            src={
-                              "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
-                              dataList.champNames.champ2ID +
-                              "_0.jpg"
-                            }
-                            alt="Champion Splash"
-                          ></img>
-                          <div>
-                            <p className="masteryPoints">{dataList.champs.champ2Points} pts</p>
-                          </div>
-                        </div>
-
-                        <div className="champSplash">
-                          <div>
-                            <p className="champName">{dataList.champNames.champ3Name}</p>
-                          </div>
-                          <img
-                            width="154px"
-                            height="280px"
-                            src={
-                              "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
-                              dataList.champNames.champ3ID +
-                              "_0.jpg"
-                            }
-                            alt="Champion Splash"
-                          ></img>
-
-                          <div>
-                            <p className="masteryPoints">{dataList.champs.champ3Points} pts</p>
-                          </div>
-                        </div>
-                      </div>
+                      <ChampMastery champNames = {dataList.champNames} champs = {dataList.champs}/>
                     </div>
 
                     {/* <div>

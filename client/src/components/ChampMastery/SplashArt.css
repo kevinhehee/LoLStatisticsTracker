@@ -1,0 +1,27 @@
+.SplashContainer
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.champSplash
+{
+  /* flex: 1; */
+  margin: 1vw;
+  flex-direction: column;
+  text-align: center;
+  color: aliceblue;
+}
+
+.champName
+{
+  font-size: 40px;
+  margin: auto;
+
+}
+
+.masteryPoints
+{
+  font-size: 20px;
+  margin: auto;
+}
