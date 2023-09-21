@@ -9,7 +9,7 @@ const GameInfo = ( {gameData, win} ) => {
 
     if (win)
     {
-        background = "rgba(0, 239, 201, 1)";
+        background = "rgb(0, 162, 255)";
         color = "black";
     }
     else
