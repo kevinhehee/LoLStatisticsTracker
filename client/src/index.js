@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import App from "./App";
 import Search from "./Search"
+import ChatRoom from "./components/ChatRoom/ChatRoom"
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -10,7 +11,9 @@ root.render(
   // <React.StrictMode>
     <BrowserRouter>
       {/* <App /> */}
+      {/* <ChatRoom/> */}
       <Routes>
+        <Route path = "/chatroom" element = {<ChatRoom/>}/>
         <Route path = "/" element = {<App/>} />
         <Route path = "/search/user/:username" element = {<Search/>}/>
       </Routes>

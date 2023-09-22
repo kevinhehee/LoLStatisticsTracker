@@ -15,11 +15,20 @@ const Search = () => {
   const [isCoolDownActive, setCoolDownActive] = useState(false);
   const [coolDownTime, setCoolDownTime] = useState(0);
   const { username } = useParams();
-  const [count, setCount] = useState(0);
   const navigate = useNavigate();
 
   const handleSearch = async () => {
+      if (searchText.length <= 3)
+      {
+        console.log("LESS THAN THREE")
+        return;
+      }
+
     navigate(`/search/user/${searchText}`);
+  }
+
+  const handleHomePage = async () => {
+    navigate(`/`)
   }
 
   useEffect(() => {
@@ -78,7 +87,7 @@ const Search = () => {
   return (
     <>
       <div class="navigation-container">
-        <a>Home</a>
+        <button onClick = {handleHomePage}>Home</button>
       </div>
       
       <div className="background">
@@ -89,7 +98,7 @@ const Search = () => {
                 <div className="allRanksContainer">
                   <div className="userInfoContainer">
                     <div className="searchContainerFound">
-                      <h1>WOOOO Player Search</h1>
+                      <h1>MetaMetrics</h1>
                       <input
                         className="searchbar"
                         type="text"

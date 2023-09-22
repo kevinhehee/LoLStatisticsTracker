@@ -253,6 +253,7 @@ body
   flex-direction: column;
   align-items: center;
   padding: 40px;
+  color: white;
 }
 
 .searchContainerHome > h1
@@ -269,7 +270,7 @@ body
   padding-top: 70px;
   font-family: searchFont;
   font-size: 14px;
-  color: black;
+  
 }
 
 
@@ -353,4 +354,5 @@ body
   /* align-self: center; */
   font-family: searchFont;
   bottom: 0;
+  color: aliceblue;
 }
