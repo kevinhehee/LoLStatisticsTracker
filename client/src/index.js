@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import Search from "./Search"
-import ChatRoom from "./components/ChatRoom/ChatRoom"
+import Search from "./Search";
+import PickChatRoom from "./components/ChatRoom/PickChatRoom";
+import SoloQueueChat from "./components/ChatRoom/soloQueueChat";
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -13,7 +14,8 @@ root.render(
       {/* <App /> */}
       {/* <ChatRoom/> */}
       <Routes>
-        <Route path = "/chatroom" element = {<ChatRoom/>}/>
+        <Route path = "/chatroom/solo" element = {<SoloQueueChat/>}/>
+        <Route path = "/chatroom" element = {<PickChatRoom/>}/>
         <Route path = "/" element = {<App/>} />
         <Route path = "/search/user/:username" element = {<Search/>}/>
       </Routes>

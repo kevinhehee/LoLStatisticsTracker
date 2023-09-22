@@ -6,7 +6,7 @@ import { useState } from "react";
 import Cookies from "universal-cookie"
 const cookies = new Cookies();
 
-export const Auth = () => {
+export const Auth = ({ onSignIn }) => {
 
     const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
 
@@ -16,6 +16,7 @@ export const Auth = () => {
             const result = await signInWithPopup(auth, provider);
         // console.log(result);
         cookies.set("auth-token", result.user.refreshToken)
+        onSignIn(true);
         } catch(err) {
             console.log(err);
         }

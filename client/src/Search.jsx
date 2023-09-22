@@ -31,6 +31,10 @@ const Search = () => {
     navigate(`/`)
   }
 
+  const handleMatchMake = async () => {
+    navigate(`/ChatRoom`)
+  }
+
   useEffect(() => {
     getPlayerGames();
   }, [username])
@@ -88,6 +92,7 @@ const Search = () => {
     <>
       <div class="navigation-container">
         <button onClick = {handleHomePage}>Home</button>
+        <button onClick = {handleMatchMake}>Look for Teammates</button>
       </div>
       
       <div className="background">
