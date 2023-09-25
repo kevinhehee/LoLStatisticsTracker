@@ -2,3 +2,20 @@
 {
     
 }
+
+.signOut
+{
+
+}
+
+.signOut > button
+{
+    
+}
+
+.signOut > button:hover
+{
+    background-color: aliceblue;
+    transform: scale(1.05);
+    cursor: pointer;
+}

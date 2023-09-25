@@ -1,0 +1,10 @@
+
+
+.profileContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This assumes you want to center it in the full viewport height */
+    /* text-align: center; */
+    width: 100vw;
+}

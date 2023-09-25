@@ -1,7 +1,8 @@
 import "./styles/App.css";
-import "./styles/navigation.css"
+import "./styles/homepage.css"
 import { useState } from "react";
 import axios from "axios";
+import Navigate from "./components/Navigation/Navigation"
 import { useNavigate } from "react-router-dom"
 import { Auth } from "./components/Authentication/Auth"
 import Cookies from "universal-cookie"
@@ -44,15 +45,16 @@ const App = () => {
             Search
           </button>
           {isInvalid && <span>User must have more than 2 characters</span>}
-        </div>
-
-        <div>
           <Auth />
+          <Navigate/>
+          
         </div>
 
-        <div className="footer">
+        
+      </div>
+      
+      <div className="footer">
           <p>Made with 💖 by Kevin He</p>
-        </div>
       </div>
     </>
   )

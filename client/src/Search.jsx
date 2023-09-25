@@ -1,7 +1,7 @@
 import "./styles/App.css";
-import "./styles/navigation.css"
 import MatchHistory from "./components/MatchHistory/MatchHistory";
 import ChampMastery from "./components/ChampMastery/ChampMastery";
+import Navigate from "./components/Navigation/Navigation"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from 'react-router-dom'
@@ -25,14 +25,6 @@ const Search = () => {
       }
 
     navigate(`/search/user/${searchText}`);
-  }
-
-  const handleHomePage = async () => {
-    navigate(`/`)
-  }
-
-  const handleMatchMake = async () => {
-    navigate(`/ChatRoom`)
   }
 
   useEffect(() => {
@@ -85,24 +77,33 @@ const Search = () => {
       }
       
       
+      // if (dataList.validAPI === false)
+      // {
+      //   return (
+      //     <>
+      //       <Navigate/>
+      //       {dataList.validAPI == false && (
+      //         <div className = "badAPI">
+      //           <h1>API KEY BROKEN</h1>
+      //         </div>
+      //       )}
+      //     </>
+      //   )
+      // }
     
     console.log(dataList);
 
   return (
     <>
-      <div class="navigation-container">
-        <button onClick = {handleHomePage}>Home</button>
-        <button onClick = {handleMatchMake}>Look for Teammates</button>
-      </div>
-      
+      <Navigate/>
+
       <div className="background">
         <div className="pageContainer">
           <div className="page">
             {
               dataList.user && Object.keys(dataList.user) && (
                 <div className="allRanksContainer">
-                  <div className="userInfoContainer">
-                    <div className="searchContainerFound">
+                  <div className="searchContainerFound">
                       <h1>MetaMetrics</h1>
                       <input
                         className="searchbar"
@@ -117,6 +118,9 @@ const Search = () => {
 
                       <p>Made with 💖 by Kevin He</p>
                     </div>
+                    
+                  <div className="userInfoContainer">
+                    
 
                     <div className="champSplashContainer">
                       <div className="userIconContainer">

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Auth } from "../Authentication/Auth";
+import "./pickchatroom.css";
 import { auth, provider } from "../../firebase.js";
 import { signInWithPopup } from "firebase/auth";
 import { useState, useRef } from "react";
@@ -24,20 +25,19 @@ const PickChatRoom = () => {
     }
 
     return (
-        <div>
+        <div className = "chatRoomSelectionContainer">
             {isAuth ? 
             (
-
-                <div>
-
+                <>
+                <div className = "buttonContainer">
                     <button onClick = {() => handleChatNavigate("solo")}>Solo Queue Chat</button>
-
+                    <button onClick = {() => handleChatNavigate("flex")}>Flex Queue Chat</button>
+                    <button onClick = {() => handleChatNavigate("aram")}>ARAM</button>
+                    <p>Enter a chat room</p>
                 </div>
-                // <div className = "room">  
-                //     <label>Enter Room Name: </label>
-                //     <input ref = {roomInputRef}/>
-                //     <button onClick = {() => setRoom(roomInputRef.current.value)}>Enter Chat</button>
-                // </div>
+
+                
+                </>
             ) 
             :
             <div>

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { auth, provider } from "../../firebase.js";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signOut } from "firebase/auth";
 import { useState } from "react";
 
 import Cookies from "universal-cookie"
@@ -11,23 +11,28 @@ export const Auth = ({ onSignIn }) => {
     const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
 
     const signInWithGoogle = async () => {
-
         try{
             const result = await signInWithPopup(auth, provider);
-        // console.log(result);
         cookies.set("auth-token", result.user.refreshToken)
+        setIsAuth(true);
         onSignIn(true);
         } catch(err) {
             console.log(err);
         }
     };
-    // console.log("SADFSDF");
-    // console.log(isAuth);
+    
+    const signUserOut = async () => {
+        await signOut(auth);
+        cookies.remove("auth-token");
+        setIsAuth(false);
+    }
 
     if (isAuth)
     {
         return (
-            <></>
+            <div className = "signOut">
+                <button onClick = {signUserOut}>Sign Out</button>
+            </div>
         )
     }
     else

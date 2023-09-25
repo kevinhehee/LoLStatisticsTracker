@@ -1,0 +1,74 @@
+@font-face  {
+  font-family: LoLfont;
+  src: url(../fonts/BeaufortforLOL-Bold.ttf);
+}
+
+body, div, h1, input, button, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: LoLfont;
+}
+
+.mainpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #e8f0fe, #acc6e8);
+}
+
+.searchContainerHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #e1ebf7;
+    padding: 20px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 150px;
+    color: black;
+}
+
+.searchContainerHome > h1 {
+    color: rgb(42, 25, 62);
+}
+
+h1 {
+    margin-bottom: 16px;
+    /* color: #2c3e50; A deeper shade of blue for contrast */
+}
+
+.searchbar {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #a4c0d4; /* Subtle blue border */
+    width: 300px;
+    margin-bottom: 10px;
+    outline: none;
+    font-size: 16px;
+    background-color: #f7fbff; /* Very light bluish background for the input field */
+}
+
+.searchbutton {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background: #3498db; /* A nice blue for the button */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.searchbutton:hover {
+    background: #2980b9; /* Slightly darker blue on hover */
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: #34495e; /* Slightly deeper blue for footer text */
+}
