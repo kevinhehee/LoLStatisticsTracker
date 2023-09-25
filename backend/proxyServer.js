@@ -30,6 +30,12 @@ app.get("/find", async (req, res) => {
   const playerName = req.query.username;
   userInfo = await getUserInfo(playerName);
 
+  if (userInfo.code === "ERR_BAD_REQUEST")
+  {
+    res.json({validAPI: false})
+    return;
+  }
+
   const ID = userInfo.id;
   const PUUID = userInfo.puuid;
 
@@ -65,7 +71,7 @@ app.get("/find", async (req, res) => {
 
   res.json(allDATA);
 
-  console.log(allDATA);
+  // console.log(allDATA);
   
 });
 

@@ -1,7 +1,7 @@
 import "./styles/App.css";
-import "./styles/navigation.css"
 import MatchHistory from "./components/MatchHistory/MatchHistory";
 import ChampMastery from "./components/ChampMastery/ChampMastery";
+import Navigate from "./components/Navigation/Navigation"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from 'react-router-dom'
@@ -15,10 +15,15 @@ const Search = () => {
   const [isCoolDownActive, setCoolDownActive] = useState(false);
   const [coolDownTime, setCoolDownTime] = useState(0);
   const { username } = useParams();
-  const [count, setCount] = useState(0);
   const navigate = useNavigate();
 
   const handleSearch = async () => {
+      if (searchText.length <= 3)
+      {
+        console.log("LESS THAN THREE")
+        return;
+      }
+
     navigate(`/search/user/${searchText}`);
   }
 
@@ -72,24 +77,34 @@ const Search = () => {
       }
       
       
+      // if (dataList.validAPI === false)
+      // {
+      //   return (
+      //     <>
+      //       <Navigate/>
+      //       {dataList.validAPI == false && (
+      //         <div className = "badAPI">
+      //           <h1>API KEY BROKEN</h1>
+      //         </div>
+      //       )}
+      //     </>
+      //   )
+      // }
     
     console.log(dataList);
 
   return (
     <>
-      <div class="navigation-container">
-        <a>Home</a>
-      </div>
-      
+      <Navigate/>
+
       <div className="background">
         <div className="pageContainer">
           <div className="page">
             {
               dataList.user && Object.keys(dataList.user) && (
                 <div className="allRanksContainer">
-                  <div className="userInfoContainer">
-                    <div className="searchContainerFound">
-                      <h1>WOOOO Player Search</h1>
+                  <div className="searchContainerFound">
+                      <h1>MetaMetrics</h1>
                       <input
                         className="searchbar"
                         type="text"
@@ -103,6 +118,9 @@ const Search = () => {
 
                       <p>Made with 💖 by Kevin He</p>
                     </div>
+                    
+                  <div className="userInfoContainer">
+                    
 
                     <div className="champSplashContainer">
                       <div className="userIconContainer">
