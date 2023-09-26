@@ -1,12 +1,14 @@
 @font-face  {
   font-family: LoLfont;
-  src: url(../fonts/BeaufortforLOL-Bold.ttf);
+  /* src: url(../fonts/BeaufortforLOL-Bold.ttf); */
+
+  src: url(../../fonts/BeaufortforLOL-Bold.ttf);
 }
 
 @font-face
 {
   font-family: searchFont;
-  src: url(../fonts/BeaufortforLOL-Regular.ttf);
+  src: url(../../fonts/BeaufortforLOL-Regular.ttf);
 }
 
 body, div, h1, input, button, p {
