@@ -6,7 +6,7 @@ import { useState } from "react";
 import Cookies from "universal-cookie"
 const cookies = new Cookies();
 
-export const Auth = ({ onSignIn }) => {
+const Auth = ({ onSignIn }) => {
 
     const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
 
@@ -39,15 +39,10 @@ export const Auth = ({ onSignIn }) => {
     {
         return (
         <div className = "signIn">
-            <h1>Sign In With Google To Continue</h1>
             <button onClick = {signInWithGoogle}> Sign in With Google</button>
-             
         </div>
     )
     }
-
-    
-        
-
-    
 }
+
+export default Auth;

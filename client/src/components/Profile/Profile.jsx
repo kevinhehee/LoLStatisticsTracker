@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "./profile.css";
 import Cookies from "universal-cookie"
-import { Auth } from "../Authentication/Auth";
-
+import Auth from "../Authentication/Auth";
 
 const cookies = new Cookies();
 

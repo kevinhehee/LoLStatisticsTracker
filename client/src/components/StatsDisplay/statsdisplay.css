@@ -2,13 +2,13 @@
 
 {
   font-family: LoLfont;
-  src: url(../fonts/BeaufortforLOL-Bold.ttf);
+  src: url(../../fonts/BeaufortforLOL-Bold.ttf);
 }
 
 @font-face
 {
   font-family: searchFont;
-  src: url(../fonts/BeaufortforLOL-Regular.ttf);
+  src: url(../../fonts/BeaufortforLOL-Regular.ttf);
 }
 
 html
@@ -28,32 +28,9 @@ body
 {
   margin: 0px;
   min-height: 100vh;
-
-  /* background-color: rgb(217, 237, 255); */
-  /* background-color: rgb(14, 143, 255); */
-
   background: rgb(23,15,148);
   background: radial-gradient(circle, rgba(23,15,148,1) 0%, rgba(1,37,145,1) 47%, rgba(0,61,84,1) 93%);
-
-
-/* 
-  background-image: url(../public/images/worlds2020background.jpg);
-  background-size:cover; 
-  background-blend-mode: color-burn;
-  
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-   */
 }
-
-/* .background
-{
-  min-width: 100vw;
-  min-height: 100vh;
-  background-color:aliceblue;
-} */
-
-
 
 .badAPI
 {
@@ -274,13 +251,13 @@ body
   flex: 1;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 20px;
+  margin-top: 100px;
   margin-bottom: 20px;
   border-top-left-radius: 20;
   border-top-right-radius: 20;
   color: whitesmoke;
-
-
 }
 
 .searchContainerFound > h1

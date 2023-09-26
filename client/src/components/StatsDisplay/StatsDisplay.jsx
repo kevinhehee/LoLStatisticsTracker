@@ -1,15 +1,13 @@
-import "./styles/Search.css";
-import MatchHistory from "./components/MatchHistory/MatchHistory";
-import ChampMastery from "./components/ChampMastery/ChampMastery";
-import Navigate from "./components/Navigation/Navigation"
+import "./statsdisplay.css";
+import MatchHistory from "../MatchHistory/MatchHistory";
+import ChampMastery from "../ChampMastery/ChampMastery";
+import Navigate from "../Navigation/Navigation"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from 'react-router-dom'
-import AverageStats from "./components/AverageStats/AverageStats";
+import AverageStats from "../AverageStats/AverageStats";
 
-
-
-const Search = () => {
+const StatsDisplay = () => {
   const [searchText, setSearchText] = useState("");
   const [dataList, setDataList] = useState({data : ""});
   const [isCoolDownActive, setCoolDownActive] = useState(false);
@@ -276,4 +274,4 @@ const Search = () => {
   );
 }
 
-export default Search;
+export default StatsDisplay;
