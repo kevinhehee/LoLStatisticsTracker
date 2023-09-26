@@ -3,6 +3,12 @@
   src: url(../fonts/BeaufortforLOL-Bold.ttf);
 }
 
+@font-face
+{
+  font-family: searchFont;
+  src: url(../fonts/BeaufortforLOL-Regular.ttf);
+}
+
 body, div, h1, input, button, p {
     margin: 0;
     padding: 0;
@@ -41,14 +47,17 @@ h1 {
 }
 
 .searchbar {
+    font-family: searchFont;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #a4c0d4; /* Subtle blue border */
-    width: 300px;
+    border: 1px solid #a4c0d4;
+    min-width: 500px;
+    max-width: 40vw;
+    margin-top: 100px;
     margin-bottom: 10px;
     outline: none;
     font-size: 16px;
-    background-color: #f7fbff; /* Very light bluish background for the input field */
+    background-color: #f7fbff;
 }
 
 .searchbutton {

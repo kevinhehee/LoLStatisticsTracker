@@ -1,4 +1,4 @@
-import "./styles/App.css";
+import "./styles/Search.css";
 import MatchHistory from "./components/MatchHistory/MatchHistory";
 import ChampMastery from "./components/ChampMastery/ChampMastery";
 import Navigate from "./components/Navigation/Navigation"
