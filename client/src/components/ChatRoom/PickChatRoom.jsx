@@ -1,9 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Auth from "../Authentication/Auth"
 import "./pickchatroom.css";
-import { auth, provider } from "../../firebase.js";
-import { signInWithPopup } from "firebase/auth";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
@@ -12,8 +10,6 @@ const PickChatRoom = () => {
 
     
     const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
-    const [room, setRoom] = useState(null);
-    const roomInputRef = useRef(null);
     const navigate = useNavigate();
 
     const handleSignIn = (authStatus) => {

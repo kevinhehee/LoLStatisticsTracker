@@ -8,3 +8,18 @@
     /* text-align: center; */
     width: 100vw;
 }
+
+.profileInfo
+{
+    font-family: searchFont;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #a4c0d4;
+
+}
+
+.profileContainer > button
+{
+    margin: 5px;
+    padding: 5px 10px;
+}

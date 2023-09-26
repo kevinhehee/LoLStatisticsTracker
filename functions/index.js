@@ -6,9 +6,15 @@ var app = express();
 const { db } = require('./firebase.js');
 // const { FieldValue } = require('firebase-admin/firestore');
 
-app.use(cors({ origin: 'https://league-statistics-tracker.web.app'}));
+// app.use(cors({ origin: 'https://league-statistics-tracker.web.app'}));
 // app.use(express.json());
 
+app.options('*', (req, res) => {  // Respond to preflight request
+  res.header('Access-Control-Allow-Origin', 'https://your-allowed-origin.com');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.send(204);
+});
 const getUserInfo = require("./components/getUserInfo");
 const { getPlayerCHAMP } = require("./components/getPlayerCHAMP.js");
 const { getChampNames } = require("./components/getChampNames.js");
@@ -26,14 +32,21 @@ const { getGeneralStats } = require("./components/getGeneralStats.js");
 
 app.get("", async (req, res) => {
 
-  res.setHeader('Access-Control-Allow-Origin', 'https://league-statistics-tracker.web.app','https://league-statistics-tracker.firebaseapp.com/');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  res.setHeader('Access-Control-Allow-Credentials', true);
+  // res.setHeader('Access-Control-Allow-Origin', 'https://league-statistics-tracker.web.app','https://league-statistics-tracker.firebaseapp.com');
+  // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  // res.setHeader('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Origin', 'https://league-statistics-tracker.web.app');
   
 
   const playerName = req.query.username;
   userInfo = await getUserInfo(playerName);
+
+  if (userInfo.code === "ERR_BAD_REQUEST")
+  {
+    res.json({validAPI: false})
+    return;
+  }
 
   const ID = userInfo.id;
   const PUUID = userInfo.puuid;
@@ -72,14 +85,14 @@ app.get("", async (req, res) => {
   console.log(allDATA);
   
 });
-app.use(cors({ origin: 'https://league-statistics-tracker.web.app'}));
+// app.use(cors({ origin: 'https://league-statistics-tracker.web.app'}));
 
 app.post('/addPlayer', async (req, res) => {
-
-  res.setHeader('Access-Control-Allow-Origin', 'https://league-statistics-tracker.web.app','https://league-statistics-tracker.firebaseapp.com/');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Origin', 'https://league-statistics-tracker.web.app');
+  // res.setHeader('Access-Control-Allow-Origin', 'https://league-statistics-tracker.web.app','https://league-statistics-tracker.firebaseapp.com');
+  // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  // res.setHeader('Access-Control-Allow-Credentials', true);
   
   const { username, info} = req.body;
   const userRef = db.collection('users').doc('data')
