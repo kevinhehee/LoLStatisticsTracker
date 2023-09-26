@@ -20,6 +20,7 @@ const getUserInfo = (playerName) => {
         profileIconId: response.data.profileIconId,
         id: response.data.id,
         puuid: response.data.puuid,
+        code: response.code
       };
     })
     .catch((err) => err);

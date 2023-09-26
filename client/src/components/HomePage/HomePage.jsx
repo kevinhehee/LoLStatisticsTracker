@@ -15,7 +15,6 @@ const HomePage = () => {
   const [dataList, setDataList] = useState({data : ""});
   const [isInvalid, setIsInvalid] = useState(false);
   const navigate = useNavigate();
-  const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
       
     const handleSearch = async () => {
       if (searchText.length <= 3)

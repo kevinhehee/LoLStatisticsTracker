@@ -6,7 +6,6 @@ import HomePage from "./components/HomePage/HomePage"
 import Navigate from "./components/Navigation/Navigation"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cookies from "universal-cookie"
-const cookies = new Cookies();
 
 const App = () => {
   return (

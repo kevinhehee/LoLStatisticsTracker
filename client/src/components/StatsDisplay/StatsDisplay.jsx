@@ -1,4 +1,5 @@
 import "./statsdisplay.css";
+import images from "./images";
 import MatchHistory from "../MatchHistory/MatchHistory";
 import ChampMastery from "../ChampMastery/ChampMastery";
 import Navigate from "../Navigation/Navigation"
@@ -60,7 +61,7 @@ const StatsDisplay = () => {
 
             if (userName)
             {
-              const post = await axios.post(`${process.env.REACT_APP_API_URL}search/addPlayer`, {
+              await axios.post(`${process.env.REACT_APP_API_URL}search/addPlayer`, {
               "username" : userName,
               "info" : tier + " " + rank
               });
@@ -70,6 +71,7 @@ const StatsDisplay = () => {
               console.log("info missing");
             }
       } catch(error) {
+          console.log(`${process.env.REACT_APP_API_URL}find`);
           console.log(error);
         }
       }
@@ -145,9 +147,9 @@ const StatsDisplay = () => {
                                 width="160px"
                                 height="160px"
                                 src={require(
-                                  "./images/emblem-" +
+                                  "/images/emblem-" +
                                     dataList.soloRankedInfo.tier.toLowerCase() +
-                                    ".png",
+                                    ".PNG",
                                 )}
                                 alt="rankemblem"
                               ></img>
@@ -170,9 +172,9 @@ const StatsDisplay = () => {
                                 width="240px"
                                 height="240px"
                                 src={require(
-                                  "./images/emblem-" +
+                                  "/images/emblem-" +
                                   dataList.soloRankedInfo.tier.toLowerCase() +
-                                    ".png",
+                                    ".PNG",
                                 )}
                                 alt="rankemblem"
                               ></img>
@@ -196,9 +198,9 @@ const StatsDisplay = () => {
                                 width="160px"
                                 height="160px"
                                 src={require(
-                                  "./images/emblem-" +
+                                  "/images/emblem-" +
                                   dataList.flexRankedInfo.tier.toLowerCase() +
-                                    ".png",
+                                    ".PNG",
                                 )}
                                 alt="rankemblem"
                               ></img>
@@ -228,9 +230,9 @@ const StatsDisplay = () => {
                                 width="160px"
                                 height="160px"
                                 src={require(
-                                  "./images/emblem-" +
+                                  "/images/emblem-" +
                                     dataList.flexRankedInfo.tier.toLowerCase() +
-                                    ".png",
+                                    ".PNG",
                                 )}
                                 alt="rankemblem"
                               ></img>
