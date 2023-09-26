@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import "./chat.css"
+import "./chatroom.css"
 import React from "react";
 import { addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy } from "firebase/firestore";
 import { auth, db } from "../../firebase";
