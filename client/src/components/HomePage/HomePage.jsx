@@ -4,7 +4,7 @@ import axios from "axios";
 import Navigate from "../Navigation/Navigation"
 // import Navigate from "../components/Navigation/Navigation"
 import { useNavigate } from "react-router-dom"
-import { Auth } from "../Authentication/Auth"
+import Auth from "../Authentication/Auth"
 import Cookies from "universal-cookie"
 const cookies = new Cookies();
 
@@ -45,7 +45,6 @@ const HomePage = () => {
             Search
           </button>
           {isInvalid && <span>User must have more than 2 characters</span>}
-          <Auth />
           <Navigate/>
           
         </div>

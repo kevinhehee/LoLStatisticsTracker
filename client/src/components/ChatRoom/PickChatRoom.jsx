@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Auth } from "../Authentication/Auth";
+import Auth from "../Authentication/Auth"
 import "./pickchatroom.css";
 import { auth, provider } from "../../firebase.js";
 import { signInWithPopup } from "firebase/auth";
@@ -10,7 +10,7 @@ const cookies = new Cookies();
 
 const PickChatRoom = () => {
 
-
+    
     const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
     const [room, setRoom] = useState(null);
     const roomInputRef = useRef(null);
@@ -34,14 +34,16 @@ const PickChatRoom = () => {
                     <button onClick = {() => handleChatNavigate("flex")}>Flex Queue Chat</button>
                     <button onClick = {() => handleChatNavigate("aram")}>ARAM</button>
                     <p>Enter a chat room</p>
+                    <Auth onSignIn = {handleSignIn}/>
                 </div>
-
-                
                 </>
             ) 
             :
             <div>
-                <Auth onSignIn = {handleSignIn}/>
+                <div className = "buttonContainer">
+                    <h1>Sign in to Continue</h1>
+                    <Auth onSignIn = {handleSignIn}/>
+                </div>
             </div>
             
             }
